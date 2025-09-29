@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Positioning Examples</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    background-color: #f0f2f5;
+    color: #333;
+    line-height: 1.6;
+}
+header {
+    background-color: #1e88e5;
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+header p {
+    margin-top: 0.5rem;
+}
+
+/* Section Styles */
+section {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+h2 {
+    color: #1e88e5;
+    margin-bottom: 0.5rem;
+}
+p {
+    margin-bottom: 1rem;
+}
+.example {
+    position: relative;
+    margin-top: 1rem;
+    border: 2px dashed #1e88e5;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+/* Static Example */
+.static-img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Relative Example */
+.relative-card {
+    position: relative;
+    top: 15px;
+    left: 15px;
+    width: 180px;
+    background-color: #ff7043;
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Absolute Example */
+.absolute-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+.absolute-img {
+    width: 100%;
+    border-radius: 8px;
+    display: block;
+}
+.absolute-text {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(0,0,0,0.6);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+/* Fixed Example */
+.fixed-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #43a047;
+    color: white;
+    padding: 0.8rem 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    font-size: 0.9rem;
+}
+
+/* Sticky Example */
+.sticky-container {
+    height: 180px;
+    overflow: auto;
+    border: 2px dashed #fbc02d;
+    padding: 10px;
+    margin-top: 1rem;
+}
+.sticky-box {
+    position: sticky;
+    top: 0;
+    background-color: #fbc02d;
+    padding: 8px;
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .relative-card {
+        width: 140px;
+        top: 10px;
+        left: 10px;
+        font-size: 0.85rem;
+    }
+    .fixed-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.8rem;
+    }
+    .sticky-box {
+        font-size: 0.8rem;
+    }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>CSS Positioning Real-World Examples</h1>
+    <p>Learn how each CSS positioning type works with actual website-style examples.</p>
+</header>
+
+<section>
+    <h2>1. Static Positioning (Default)</h2>
+    <p>Static elements follow the normal page flow. Here’s a travel blog-style example:</p>
+    <div class="example">
+        <img class="static-img" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400" alt="Beach View">
+        <p>This beach image flows naturally in the page layout without any CSS positioning applied.</p>
+    </div>
+</section>
+
+<section>
+    <h2>2. Relative Positioning</h2>
+    <p>Relative elements move relative to their normal position. Example: a product card slightly shifted:</p>
+    <div class="example">
+        <div class="relative-card">
+            <h3>Mountain Backpack</h3>
+            <p>Perfect for hiking trips. Lightweight and durable.</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>3. Absolute Positioning</h2>
+    <p>Absolute positioning places elements relative to the nearest positioned ancestor. Example: overlay text on an image:</p>
+    <div class="example absolute-container">
+        <img class="absolute-img" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=400" alt="Mountain View">
+        <div class="absolute-text">Adventure Awaits</div>
+    </div>
+</section>
+
+<section>
+    <h2>4. Fixed Positioning</h2>
+    <p>Fixed elements stay in the viewport while scrolling. Example: a floating “Contact Us” button:</p>
+    <div class="example">
+        <p>Scroll the page to see the button stays fixed at the bottom-right corner.</p>
+        <button class="fixed-btn">Contact Us</button>
+    </div>
+</section>
+
+<section>
+    <h2>5. Sticky Positioning</h2>
+    <p>Sticky elements stick to the top of their container while scrolling. Example: sticky header in a scrollable box:</p>
+    <div class="sticky-container">
+        <div class="sticky-box">Sticky Header</div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum venenatis est tortor, et ultricies ex viverra et. Donec vel mauris quam.</p>
+        <p>More content to demonstrate scrolling. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p>Even more content. Scroll to see the sticky header remain visible.</p>
+    </div>
+</section>
+
+</body>
+</html>

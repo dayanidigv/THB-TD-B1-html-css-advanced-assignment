@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HTML5 Video Examples</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+  <section>
+    <h2>Basic Video with Controls and Subtitles</h2>
+    <video
+      controls
+      width="640"
+      height="360"
+      poster="thumbnail.jpg"
+      preload="metadata"
+      aria-describedby="video-desc"
+    >
+      <source src="video.mp4" type="video/mp4" />
+      <source src="video.webm" type="video/webm" />
+      <source src="video.ogv" type="video/ogg" />
+      <track kind="subtitles" src="subtitles.vtt" srclang="en" label="English Subtitles" default />
+      <track kind="captions" src="captions.vtt" srclang="en" label="English Captions" />
+      <p id="video-desc">
+        Your browser doesn't support HTML video. 
+        <a href="video.mp4">Download the video instead</a>.
+      </p>
+    </video>
+  </section>
+
+  <section>
+    <h2>Auto-playing Background Video</h2>
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      poster="poster.jpg"
+      aria-hidden="true"
+      tabindex="-1"
+    >
+      <source src="background.mp4" type="video/mp4" />
+      <source src="background.webm" type="video/webm" />
+    </video>
+  </section>
+
+</body>
+</html>

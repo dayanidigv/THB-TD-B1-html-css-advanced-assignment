@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Responsive and Adaptive Images</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section>
+      <h2>Basic Image</h2>
+      <img
+        src="https://images.unsplash.com/photo-1526779259212-939e64788e3c?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZnJlZSUyMGltYWdlc3xlbnwwfHwwfHx8MA%3D%3D"
+        alt="Description of the image"
+        width="400"
+        height="300"
+      />
+    </section>
+
+    <section>
+      <h2>Responsive Image with srcset</h2>
+
+      <img
+        src="https://hbr.org/resources/images/article_assets/2020/09/Sep20_10_811210906-2.jpg"
+          small.jpg   400w,
+          medium.jpg  800w,
+          large.jpg  1200w,
+          xlarge.jpg 1600w
+        "
+        sizes="
+        (max-width: 400px) 100vw,
+        (max-width: 800px) 50vw,
+        (max-width: 1200px) 33vw,
+        25vw
+      "
+        alt="Responsive landscape photo"
+        loading="lazy"
+      />
+    </section>
+
+    <section>
+      <h2>Picture Element for Art Direction</h2>
+      <picture>
+        <source media="(min-width: 800px)" srcset="wide-image.jpg" />
+        <source media="(min-width: 400px)" srcset="medium-image.jpg" />
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTTYTNNAI1alpT9aM6LYJQcApN0CewEevOqQ&s" alt="Adaptive image" />
+      </picture>
+    </section>
+
+    <section>
+      <h2>Figure with Caption</h2>
+      <figure>
+        <img src="https://www.pymnts.com/wp-content/uploads/2024/08/ecommerce-sales-growth-graphic.jpg" alt="Sales growth chart showing 25% increase" />
+        <figcaption>
+          <strong>Figure 1:</strong> Sales growth over the last quarter
+        </figcaption>
+      </figure>
+    </section>
+  </body>
+</html>

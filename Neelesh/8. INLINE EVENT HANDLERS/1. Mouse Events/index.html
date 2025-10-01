@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proper Event Handling Example</title>
+<style>
+  /* Simple styles for demo */
+  button {
+    margin: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  .tooltip {
+    display: none;
+    position: absolute;
+    background: #333;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8em;
+  }
+  .card {
+    width: 200px;
+    height: 100px;
+    background: #f0f0f0;
+    margin: 10px;
+    padding: 10px;
+    transition: all 0.3s ease;
+  }
+</style>
+</head>
+<body>
+
+  <!-- Click events -->
+  <button id="alertBtn">Simple Alert</button>
+  <button id="toggleMenuBtn">Toggle Menu</button>
+  <button id="changeColorBtn">Change Color</button>
+
+  <!-- Mouse hover events -->
+  <div id="tooltipTarget">Hover for tooltip</div>
+  <img id="hoverImage" src="image.jpg" alt="Hover effect image" width="200">
+
+  <!-- Mouse down/up events -->
+  <button id="pressBtn">Press Me</button>
+
+  <!-- Double click -->
+  <div class="card" id="expandCard">Double-click to expand</div>
+
+  <!-- Right click (context menu) -->
+  <div id="customMenuTarget" style="margin-top:20px; padding:10px; background:#e0e0e0;">
+    Right-click for custom menu
+  </div>
+
+  <!-- Tooltip element -->
+  <div class="tooltip" id="tooltip"></div>
+
+<script>
+  // Click events
+  document.getElementById('alertBtn').addEventListener('click', () => {
+    alert('Button clicked!');
+  });
+
+  document.getElementById('toggleMenuBtn').addEventListener('click', (e) => {
+    alert('Menu toggled!'); // replace with actual menu toggle logic
+  });
+
+  document.getElementById('changeColorBtn').addEventListener('click', (e) => {
+    e.target.style.backgroundColor = 'red';
+  });
+
+  // Mouse hover events
+  const tooltip = document.getElementById('tooltip');
+  const tooltipTarget = document.getElementById('tooltipTarget');
+
+  tooltipTarget.addEventListener('mouseover', (e) => {
+    tooltip.textContent = 'This is a tooltip';
+    tooltip.style.display = 'block';
+    tooltip.style.left = e.pageX + 'px';
+    tooltip.style.top = e.pageY + 'px';
+  });
+
+  tooltipTarget.addEventListener('mouseout', () => {
+    tooltip.style.display = 'none';
+  });
+
+  const hoverImage = document.getElementById('hoverImage');
+  hoverImage.addEventListener('mouseover', () => {
+    hoverImage.src = 'image-hover.jpg';
+  });
+  hoverImage.addEventListener('mouseout', () => {
+    hoverImage.src = 'image.jpg';
+  });
+
+  // Mouse down/up events
+  const pressBtn = document.getElementById('pressBtn');
+  pressBtn.addEventListener('mousedown', (e) => {
+    e.target.style.transform = 'scale(0.95)';
+  });
+  pressBtn.addEventListener('mouseup', (e) => {
+    e.target.style.transform = 'scale(1)';
+  });
+
+  // Double click
+  const expandCard = document.getElementById('expandCard');
+  expandCard.addEventListener('dblclick', (e) => {
+    e.target.style.height = e.target.style.height === '200px' ? '100px' : '200px';
+  });
+
+  // Right click (context menu)
+  const customMenuTarget = document.getElementById('customMenuTarget');
+  customMenuTarget.addEventListener('contextmenu', (e) => {
+    e.preventDefault();
+    alert('Custom context menu triggered'); // replace with actual custom menu logic
+  });
+</script>
+</body>
+</html>

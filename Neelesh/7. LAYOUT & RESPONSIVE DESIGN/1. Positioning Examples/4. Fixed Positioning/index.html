@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fixed Position Example</title>
+  <style>
+    /* Fixed header */
+    .fixed-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: #007acc;
+      color: white;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    /* Fixed sidebar */
+    .fixed-sidebar {
+      position: fixed;
+      top: 60px; /* Below header */
+      left: 0;
+      width: 250px;
+      height: calc(100vh - 60px);
+      background: #f8f9fa;
+      border-right: 1px solid #dee2e6;
+      overflow-y: auto;
+      z-index: 999;
+      padding: 10px;
+    }
+    /* Content area */
+    .content {
+      margin-top: 70px; /* Push down from header */
+      margin-left: 260px; /* Push right from sidebar */
+      padding: 20px;
+    }
+    /* Fixed floating action button */
+    .fixed-fab {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #007acc;
+      color: white;
+      border: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      cursor: pointer;
+      z-index: 1001;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+    /* Fixed overlay */
+    .fixed-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1040;
+      display: none; /* hidden by default */
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 24px;
+    }
+    .fixed-overlay.active {
+      display: flex;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Fixed Header -->
+  <div class="fixed-header">
+    <h2>My Website</h2>
+    <nav>
+      <a href="#" style="color:white; margin-right:15px;">Home</a>
+      <a href="#" style="color:white;">About</a>
+    </nav>
+  </div>
+
+  <!-- Fixed Sidebar -->
+  <div class="fixed-sidebar">
+    <h3>Menu</h3>
+    <ul>
+      <li><a href="#">Dashboard</a></li>
+      <li><a href="#">Profile</a></li>
+      <li><a href="#">Settings</a></li>
+      <li><a href="#">Logout</a></li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content">
+    <h1>Fixed Position Demo</h1>
+    <p>
+      Scroll down the page to see the header, sidebar, and floating button remain in place.
+      The overlay can be toggled by clicking the FAB button.
+    </p>
+    <p>Lorem ipsum dolor sit amet... (repeat to make scrollable)</p>
+    <p>Lorem ipsum dolor sit amet... (repeat to make scrollable)</p>
+    <p>Lorem ipsum dolor sit amet... (repeat to make scrollable)</p>
+    <p>Lorem ipsum dolor sit amet... (repeat to make scrollable)</p>
+    <p>Lorem ipsum dolor sit amet... (repeat to make scrollable)</p>
+    <p>Lorem ipsum dolor sit amet... (repeat to make scrollable)</p>
+    <p>Lorem ipsum dolor sit amet... (repeat to make scrollable)</p>
+    <p>Lorem ipsum dolor sit amet... (repeat to make scrollable)</p>
+  </div>
+
+  <!-- Floating Action Button -->
+  <button class="fixed-fab" onclick="toggleOverlay()">+</button>
+
+  <!-- Overlay -->
+  <div class="fixed-overlay" id="overlay">
+    <div>Overlay Active! Click anywhere to close.</div>
+  </div>
+
+  <script>
+    const overlay = document.getElementById('overlay');
+    function toggleOverlay() {
+      overlay.classList.toggle('active');
+    }
+    overlay.addEventListener('click', () => overlay.classList.remove('active'));
+  </script>
+
+</body>
+</html>

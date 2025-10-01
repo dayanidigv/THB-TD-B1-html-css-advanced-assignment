@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proper Event Handling Example</title>
+</head>
+<body>
+<!-- Basic image -->
+<img src="C:\Users\User\Desktop\HTML\THB-TD-B1-html-css-advanced-assignment\THB-TD-B1-html-css-advanced-assignment\assignments\Neelesh\3. Media Elements\image\photo.jpeg" alt="Description of the image" width="400" height="300">
+<!-- Responsive image with srcset -->
+<img src="C:\Users\User\Desktop\HTML\THB-TD-B1-html-css-advanced-assignment\THB-TD-B1-html-css-advanced-assignment\assignments\Neelesh\3. Media Elements\image\photo.jpeg"
+srcset="photo.jpeg 400w,
+medium.jpg 800w,
+large.jpg 1200w,
+xlarge.jpg 1600w"
+sizes="(max-width: 400px) 100vw,
+(max-width: 800px) 50vw,
+(max-width: 1200px) 33vw,
+25vw"
+alt="Responsive landscape photo"
+loading="lazy">
+<!-- Picture element for art direction -->
+<picture>
+<source media="(min-width: 800px)" srcset="wide-image.jpg">
+<source media="(min-width: 400px)" srcset="medium-image.jpg">
+<img src="photo.jpeg" alt="Adaptive image">
+</picture>
+<!-- Figure with caption -->
+<figure>
+<img src="chart.jpg" alt="Sales growth chart showing 25% increase">
+<figcaption>
+<strong>Figure 1:</strong> Sales growth over the last quarter
+</figcaption>
+</figure>
+</body>
+</html>

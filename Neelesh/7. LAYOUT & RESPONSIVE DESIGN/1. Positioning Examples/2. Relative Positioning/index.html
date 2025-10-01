@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relative Position Example</title>
+  <style>
+    .relative-container {
+      position: relative;
+      width: 300px;
+      height: 200px;
+      background: #f0f0f0;
+      border: 2px solid #ddd;
+      margin: 20px auto;
+    }
+    .relative-item {
+      position: relative;
+      top: 20px; /* Move 20px down */
+      left: 30px; /* Move 30px right */
+      background: #007acc;
+      color: white;
+      padding: 10px;
+      width: 100px;
+    }
+    /* Relative positioning for layering */
+    .layered-text {
+      position: relative;
+      z-index: 2; /* Bring it above other elements */
+      background: white;
+      padding: 20px;
+      margin-top: -40px; /* Overlaps to show layering */
+      border: 1px solid #007acc;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Position: Relative Example</h2>
+
+  <div class="relative-container">
+    <div class="relative-item">
+      I’m moved (20px down, 30px right)
+    </div>
+  </div>
+
+  <div class="layered-text">
+    I use <code>position: relative</code> with <code>z-index</code>  
+    to sit on top of other content.
+  </div>
+
+</body>
+</html>

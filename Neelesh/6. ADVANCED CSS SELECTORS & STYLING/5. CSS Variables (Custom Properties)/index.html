@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Variables Demo</title>
+  <link rel="stylesheet" href="style.css"> <!-- link your CSS -->
+</head>
+<body>
+
+  <!-- Normal theme -->
+  <div class="card">
+    <h2>Default Card</h2>
+    <p>This card uses the default <strong>CSS variables</strong>.</p>
+    <button class="button">Primary Button</button>
+    <button class="button button--secondary">Secondary Button</button>
+    <button class="button button--large">Large Button</button>
+  </div>
+
+  <!-- Dark theme -->
+  <div class="card theme-dark" style="margin-top: 2rem;">
+    <h2>Dark Theme Card</h2>
+    <p>This card switches variables inside <code>.theme-dark</code>.</p>
+    <button class="button">Primary Dark</button>
+  </div>
+
+  <!-- High Contrast theme -->
+  <div class="card theme-high-contrast" style="margin-top: 2rem;">
+    <h2>High Contrast Card</h2>
+    <p>Here variables are overridden for accessibility.</p>
+    <button class="button">Contrast Button</button>
+  </div>
+
+  <!-- Conditional variables -->
+  <div class="card" style="margin-top: 2rem;">
+    <h2>Conditional Styling</h2>
+    <p class="conditional-style">This text uses fallback variables.</p>
+    <p class="conditional-style" style="--custom-color: #e91e63; --custom-margin: 2rem;">
+      This text overrides defaults with custom variables 💡
+    </p>
+  </div>
+
+  <!-- Calculated spacing -->
+  <div class="card calculated-spacing" style="margin-top: 2rem;">
+    <h2>Calculated Spacing</h2>
+    <p>Padding and margin are calculated using <code>calc()</code> and variables.</p>
+  </div>
+
+</body>
+</html>

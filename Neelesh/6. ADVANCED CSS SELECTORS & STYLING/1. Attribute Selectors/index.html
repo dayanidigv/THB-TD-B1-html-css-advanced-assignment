@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attribute Selectors</title>
+    <style>
+        /* Has attribute */
+input[required] {
+border-left: 3px solid #dc3545;
+}
+img {
+border: 2px solid green;
+}
+/* Exact attribute value */
+input[type="email"] {
+background-color: #e6f3ff;
+}
+button[type="submit"] {
+background-color: #007acc;
+color: white;
+}
+/* Attribute contains value (substring) */
+a[href*="example.com"] {
+color: #28a745;
+font-weight: bold;
+}
+img[src*="thumbnail"] {
+max-width: 150px;
+}
+/* Attribute starts with value */
+a[href^="https://"] {
+padding-left: 20px;
+background: url('secure-icon.png') no-repeat left center;
+}
+a[href^="mailto:"] {
+color: #dc3545;
+}
+a[href^="tel:"] {
+color: #007acc;
+}
+/* Attribute ends with value */
+a[href$=".pdf"] {
+color: #dc3545;
+text-decoration: underline;
+}
+a[href$=".zip"] {
+font-weight: bold;
+}
+img[src$=".svg"] {
+filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+}
+/* Attribute contains word (space-separated) */
+img[alt~="photo"] {
+border-radius: 8px;
+}
+div[class~="featured"] {
+background-color: #fff3cd;
+}
+/* Attribute starts with value followed by hyphen */
+p[lang|="en"] {
+font-family: "Times New Roman", serif;
+}
+/* Case-insensitive matching */
+input[type="email" i] {
+background: #d0e2f1;
+}
+/* Multiple attribute selectors */
+input[type="text"][required] {
+border: 2px solid #ffc107;
+}
+button[type="submit"][disabled] {
+opacity: 0.5;
+cursor: not-allowed;
+}
+
+
+    </style>
+</head>
+<body>
+<label for="fullname">Full Name*</label>
+<input type="text" id="fullname" name="fullname" required
+placeholder="Enter your full name" autocomplete="name">
+<br>
+<br>
+<label for="email">Email Address*</label>
+<input type="email" id="email" name="email" required
+placeholder="user@example.com" autocomplete="email">
+<br>
+<br>
+<p>
+    <img src="dw_pdf.png" height="50px" width="80px"><a href="document.pdf">Download PDF</a><br>
+   <img src="dw_zip.png" height="50px" width="50px"> <a href="archive.zip">Download ZIP</a>
+  </p> 
+<p> Fill this Details</p>
+    <button type="submit">Submit Form</button>
+</body>
+</html>

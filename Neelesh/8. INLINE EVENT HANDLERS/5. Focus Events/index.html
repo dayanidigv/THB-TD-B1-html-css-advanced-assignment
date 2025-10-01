@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Focus management -->
+<input type="text"
+onfocus="this.style.backgroundColor='#e6f3ff'"
+onblur="this.style.backgroundColor=''"
+placeholder="Focus me">
+<!-- Tab order -->
+ <label for="Name">Enter your Name </label> 
+<input type="text" tabindex="1" onfocus="showHint(1)">
+<label for="Email">Enter your mail id </label> 
+<input type="text" tabindex="2" onfocus="showHint(2)">
+<label for="Focus">Focus Area</label> 
+<input type="text" tabindex="3" onfocus="showHint(3)">
+</body>
+</html>

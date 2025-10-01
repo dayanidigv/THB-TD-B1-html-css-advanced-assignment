@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/submit" method="post" novalidate>
+<fieldset>
+    
+<legend>Personal Information</legend>
+<!-- Text inputs -->
+<label for="fullname">Full Name*</label>
+<input type="text" id="fullname" name="fullname" required
+placeholder="Enter your full name" autocomplete="name">
+<br>
+<br>
+<label for="email">Email Address*</label>
+<input type="email" id="email" name="email" required
+placeholder="user@example.com" autocomplete="email">
+<br>
+<br>
+<label for="phone">Phone Number</label>
+<input type="tel" id="phone" name="phone"
+placeholder="+1 (555) 123-4567" autocomplete="tel">
+<br>
+<br>
+<label for="website">Website</label>
+<input type="url" id="website" name="website"
+placeholder="https://example.com">
+<br>
+</fieldset>
+<fieldset>
+<legend>Additional Details</legend>
+<!-- Date/Time inputs -->
+<label for="birthdate">Birth Date</label>
+<input type="date" id="birthdate" name="birthdate"
+min="1900-01-01" max="2025-12-31">
+
+<label for="appointment">Appointment Time</label>
+<input type="datetime-local" id="appointment" name="appointment">
+
+<label for="meeting-time">Meeting Time</label>
+<input type="time" id="meeting-time" name="meeting-time">
+
+
+<!-- Number inputs -->
+<label for="age">Age</label>
+<input type="number" id="age" name="age" min="18" max="120" step="1">
+<br>
+<br>
+<label for="salary">Expected Salary Range</label>
+<input type="range" id="salary" name="salary"
+min="30000" max="150000" step="5000" value="75000">
+<br>
+<br>
+<output for="salary">$75,000</output>
+<!-- Color picker -->
+<label for="theme-color">Preferred Theme Color</label>
+<input type="color" id="theme-color" name="theme-color" value="#007acc">
+<br>
+<br>
+<!-- File uploads -->
+<label for="resume">Resume (PDF only)</label>
+<input type="file" id="resume" name="resume" accept=".pdf">
+<label for="portfolio">Portfolio Images</label>
+<input type="file" id="portfolio" name="portfolio"
+accept="image/*" multiple>
+<!-- Search -->
+<label for="search">Search Query</label>
+<input type="search" id="search" name="search"
+placeholder="Search our database...">
+<!-- Password -->
+<label for="password">Password</label>
+<input type="password" id="password" name="password"
+minlength="8" required>
+<!-- Hidden field -->
+<input type="hidden" name="form-id" value="contact-form">
+</fieldset>
+<fieldset>
+<legend>Preferences</legend>
+<!-- Select dropdown -->
+<label for="country">Country</label>
+<select id="country" name="country" required>
+<option value="">Choose a country</option>
+<optgroup label="North America">
+<option value="us">United States</option>
+<option value="ca">Canada</option>
+</optgroup>
+<optgroup label="Europe">
+<option value="uk">United Kingdom</option>
+<option value="de">Germany</option>
+</optgroup>
+<option value="in">India</option>
+</select>
+<!-- Multi-select -->
+<label for="skills">Skills (Hold Ctrl to select multiple)</label>
+<select id="skills" name="skills" multiple size="4">
+<option value="html">HTML</option>
+<option value="css">CSS</option>
+<option value="js">JavaScript</option>
+<option value="python">Python</option>
+</select>
+<!-- Textarea -->
+<label for="bio">Biography</label>
+<textarea id="bio" name="bio" rows="4" cols="50"
+placeholder="Tell us about yourself..." maxlength="500"></textarea>
+<!-- Radio buttons -->
+<fieldset>
+<legend>Newsletter Frequency</legend>
+<input type="radio" id="daily" name="newsletter" value="daily">
+<label for="daily">Daily</label>
+<input type="radio" id="weekly" name="newsletter" value="weekly" checked>
+<label for="weekly">Weekly</label>
+<input type="radio" id="monthly" name="newsletter" value="monthly">
+<label for="monthly">Monthly</label>
+</fieldset>
+<!-- Checkboxes -->
+<fieldset>
+<legend>Interests</legend>
+<input type="checkbox" id="webdev" name="interests" value="web-development">
+<label for="webdev">Web Development</label>
+<input type="checkbox" id="design" name="interests" value="design">
+<label for="design">Design</label>
+<input type="checkbox" id="marketing" name="interests" value="marketing">
+<label for="marketing">Marketing</label>
+</fieldset>
+<!-- Agreement checkboxes -->
+<input type="checkbox" id="terms" name="terms" required>
+<label for="terms">I agree to the Terms and Conditions*</label>
+<input type="checkbox" id="newsletter-signup" name="newsletter-signup">
+<br>
+<br>
+<label for="newsletter-signup">Subscribe to our newsletter</label>
+</fieldset>
+<!-- Form buttons -->
+<button type="submit">Submit Form</button>
+<button type="reset">Reset Form</button>
+<button type="button" onclick="validateForm()">Validate</button>
+</form>
+</body>
+</html>

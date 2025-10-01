@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS States Demo</title>
+  <style>
+    /* Your CSS Code */
+    a:link {
+      color: #007acc;
+      text-decoration: none;
+    }
+    a:visited {
+      color: #6f42c1;
+    }
+    a:hover {
+      color: #0056b3;
+      text-decoration: underline;
+      transform: translateY(-1px);
+      transition: all 0.2s ease;
+    }
+    a:active {
+      color: #004085;
+      transform: translateY(0);
+    }
+    a:focus {
+      outline: 2px solid #007acc;
+      outline-offset: 2px;
+    }
+
+    input:focus {
+      border-color: #007acc;
+      box-shadow: 0 0 0 3px rgba(0, 122, 204, 0.1);
+    }
+    input:hover {
+      border-color: #6c757d;
+    }
+    input:invalid {
+      border-color: #dc3545;
+      background-color: #f8d7da;
+    }
+    input:valid {
+      border-color: #28a745;
+      background-color: #d1eddd;
+    }
+    input:required {
+      box-shadow: inset 0 0 5px rgba(220, 53, 69, 0.2);
+    }
+    input:optional {
+      box-shadow: inset 0 0 5px rgba(40, 167, 69, 0.2);
+    }
+    input:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      background-color: #e9ecef;
+    }
+    input:enabled {
+      cursor: text;
+    }
+    input:checked + label {
+      font-weight: bold;
+      color: #007acc;
+    }
+    input:indeterminate {
+      opacity: 0.7;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    button:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <h2>Link States</h2>
+  <a href="https://www.google.com" target="_blank">Google (Unvisited)</a><br>
+  <a href="https://www.wikipedia.org" target="_blank">Wikipedia (Visited)</a>
+
+  <h2>Form States</h2>
+  <form>
+    <label>Email (required, valid/invalid):</label><br>
+    <input type="email" required placeholder="Enter email"><br><br>
+
+    <label>Username (optional):</label><br>
+    <input type="text" placeholder="Optional"><br><br>
+
+    <label>Password (disabled):</label><br>
+    <input type="password" disabled value="password123"><br><br>
+
+    <input type="checkbox" id="check1">
+    <label for="check1">I agree</label><br><br>
+
+    <input type="radio" id="r1" name="option" checked>
+    <label for="r1">Option 1</label>
+    <input type="radio" id="r2" name="option">
+    <label for="r2">Option 2</label>
+  </form>
+
+  <h2>Button States</h2>
+  <button type="button">Hover / Active Button</button>
+</body>
+</html>

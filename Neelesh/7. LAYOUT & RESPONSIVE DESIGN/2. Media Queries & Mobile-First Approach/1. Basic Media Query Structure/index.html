@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Media Query Structure</title>
+    <style>
+        /* Mobile First Approach - Base styles for mobile */
+.container {
+width: 100%;
+padding: 0 16px;
+margin: 0 auto;
+}
+.grid {
+display: block;
+}
+.grid-item {
+width: 100%;
+margin-bottom: 20px;
+}
+/* Typography - Mobile */
+h1 {
+font-size: 24px;
+line-height: 1.2;
+}
+h2 {
+font-size: 20px;
+}
+p {
+font-size: 16px;
+line-height: 1.5;
+}
+/* Navigation - Mobile */
+.nav {
+flex-direction: column;
+}
+.nav-item {
+width: 100%;
+text-align: center;
+padding: 12px;
+}
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+.container {
+max-width: 540px;
+}
+h1 {
+font-size: 28px;
+}
+.grid {
+display: flex;
+flex-wrap: wrap;
+gap: 20px;
+}
+.grid-item {
+width: calc(50% - 10px);
+margin-bottom: 0;
+}
+}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+.container {
+max-width: 720px;
+padding: 0 24px;
+}
+h1 {
+font-size: 36px;
+}
+h2 {
+font-size: 28px;
+}
+p {
+font-size: 18px;
+line-height: 1.6;
+}
+.nav {
+flex-direction: row;
+justify-content: space-between;
+}
+.nav-item {
+width: auto;
+padding: 8px 16px;
+}
+.grid {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 30px;
+}
+}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+.container {
+max-width: 960px;
+padding: 0 32px;
+}
+h1 {
+font-size: 48px;
+}
+.grid {
+grid-template-columns: repeat(3, 1fr);
+gap: 40px;
+}
+/* Multi-column layout */
+.content-layout {
+display: grid;
+grid-template-columns: 1fr 300px;
+gap: 40px;
+}
+.sidebar {
+position: sticky;
+top: 20px;
+height: fit-content;
+}
+}
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+.container {
+max-width: 1140px;
+}
+.grid {
+grid-template-columns: repeat(4, 1fr);
+gap: 50px;
+}
+.content-layout {
+grid-template-columns: 1fr 350px;
+}
+}
+/* Extra extra large devices (1400px and up) */
+@media (min-width: 1400px) {
+.container {
+max-width: 1320px;
+}
+}
+
+    </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" style="display:flex; background:#007acc; color:white;">
+    <div class="nav-item">Home</div>
+    <div class="nav-item">About</div>
+    <div class="nav-item">Services</div>
+    <div class="nav-item">Contact</div>
+  </nav>
+
+  <!-- Main container -->
+  <div class="container">
+
+    <!-- Heading -->
+    <h1>Responsive Mobile-First Design</h1>
+    <h2>Subheading Example</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque venenatis nisl a nulla facilisis, at tempus velit laoreet.</p>
+
+    <!-- Grid layout -->
+    <div class="grid">
+      <div class="grid-item" style="background:#f0f0f0; padding:20px;">Grid Item 1</div>
+      <div class="grid-item" style="background:#e0e0e0; padding:20px;">Grid Item 2</div>
+      <div class="grid-item" style="background:#d0d0d0; padding:20px;">Grid Item 3</div>
+      <div class="grid-item" style="background:#c0c0c0; padding:20px;">Grid Item 4</div>
+      <div class="grid-item" style="background:#b0b0b0; padding:20px;">Grid Item 5</div>
+      <div class="grid-item" style="background:#a0a0a0; padding:20px;">Grid Item 6</div>
+    </div>
+
+    <!-- Content layout with sticky sidebar -->
+    <div class="content-layout" style="margin-top:40px;">
+      <!-- Main content -->
+      <div>
+        <h2>Main Content Area</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac quam eget risus cursus suscipit. Nulla facilisi.</p>
+        <p>More content here to show the layout flow and responsiveness across devices.</p>
+        <p>Resize the browser to see grid and typography changes at different breakpoints.</p>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="sidebar" style="background:#f8f9fa; padding:20px; border:1px solid #ddd;">
+        <h3>Sticky Sidebar</h3>
+        <ul>
+          <li>Link 1</li>
+          <li>Link 2</li>
+          <li>Link 3</li>
+          <li>Link 4</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

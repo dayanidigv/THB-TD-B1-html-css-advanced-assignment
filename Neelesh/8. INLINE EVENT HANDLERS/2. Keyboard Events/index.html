@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- Key press events -->
+<input type="text"
+onkeydown="handleKeyDown(event)"
+onkeyup="handleKeyUp(event)"
+onkeypress="handleKeyPress(event)"
+placeholder="Type something...">
+<!-- Specific key detection -->
+<input type="text"
+onkeydown="if(event.key === 'Enter') submitForm()"
+placeholder="Press Enter to submit">
+<!-- Character counter -->
+<textarea onkeyup="updateCounter(this)" maxlength="100"></textarea>
+<div id="counter">0/100 characters</div>
+<!-- Tab navigation -->
+<input type="text" onfocus="highlightField(this)" onblur="removeHighlight(this)">    
+</body>
+</html>

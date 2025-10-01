@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Pseudo-Class Demo</title>
+  <style>
+    /* Child selectors */
+    li:first-child {
+      font-weight: bold;
+      color: #007acc;
+    }
+    li:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+    li:only-child {
+      text-align: center;
+      font-style: italic;
+    }
+
+    /* Nth-child patterns */
+    tr:nth-child(odd) {
+      background-color: #f8f9fa;
+    }
+    tr:nth-child(even) {
+      background-color: #ffffff;
+    }
+    li:nth-child(3n) {
+      color: #dc3545;
+    }
+    li:nth-child(3n+1) {
+      color: #28a745;
+    }
+    li:nth-child(3n+2) {
+      color: #007acc;
+    }
+    li:nth-child(n+3) {
+      margin-top: 10px;
+    }
+    li:nth-child(-n+3) {
+      font-weight: bold;
+    }
+
+    /* Type-based selectors */
+    h2:first-of-type {
+      margin-top: 0;
+      font-size: 2em;
+    }
+    h2:last-of-type {
+      margin-bottom: 0;
+    }
+    p:nth-of-type(2) {
+      font-style: italic;
+    }
+    img:only-of-type {
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* Content-based selectors */
+    p:empty {
+      display: none;
+    }
+    div:not(.special) {
+      color: #6c757d;
+    }
+    input:not([type="hidden"]) {
+      margin-bottom: 10px;
+    }
+
+    /* Root and target */
+    :root {
+      --primary-color: #007acc;
+    }
+    :target {
+      background-color: #fff3cd;
+      padding: 20px;
+      border-left: 4px solid #ffc107;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 style="color:var(--primary-color)">CSS Demo Page</h1>
+
+  <!-- Headings -->
+  <h2>First Heading (first-of-type)</h2>
+  <h2>Second Heading (last-of-type)</h2>
+
+  <!-- Paragraphs -->
+  <p>First paragraph (normal)</p>
+  <p>Second paragraph (italic)</p>
+  <p></p> <!-- empty, will be hidden -->
+
+  <!-- Lists -->
+  <h3>Unordered List</h3>
+  <ul>
+    <li>Item 1 (first-child + bold)</li>
+    <li>Item 2</li>
+    <li>Item 3 (3n = red)</li>
+    <li>Item 4 (3n+1 = green)</li>
+    <li>Item 5 (3n+2 = blue)</li>
+    <li>Item 6 (last-child)</li>
+  </ul>
+
+  <h3>Only Child List</h3>
+  <ul>
+    <li>Single Item (only-child)</li>
+  </ul>
+
+  <!-- Table -->
+  <h3>Table with nth-child</h3>
+  <table border="1" cellpadding="8">
+    <tr><td>Row 1 (odd)</td></tr>
+    <tr><td>Row 2 (even)</td></tr>
+    <tr><td>Row 3 (odd)</td></tr>
+    <tr><td>Row 4 (even)</td></tr>
+  </table>
+
+  <!-- Image -->
+  <h3>Only Image Example</h3>
+  <div>
+    <img src="https://via.placeholder.com/150" alt="Placeholder">
+  </div>
+
+  <!-- Divs with not() -->
+  <h3>Div :not(.special)</h3>
+  <div>Normal div (grey text)</div>
+  <div class="special">Special div (not grey)</div>
+
+  <!-- Inputs -->
+  <h3>Form Inputs</h3>
+  <form>
+    <input type="text" placeholder="Visible Input"><br>
+    <input type="hidden" value="hidden-field">
+    <input type="email" placeholder="Email"><br>
+    <input type="password" placeholder="Password"><br>
+  </form>
+
+  <!-- Target -->
+  <h3>Target Example</h3>
+  <a href="#section1">Go to Section 1</a> |
+  <a href="#section2">Go to Section 2</a>
+
+  <div id="section1">
+    <h4>Section 1</h4>
+    <p>This is section 1 content.</p>
+  </div>
+  <div id="section2">
+    <h4>Section 2</h4>
+    <p>This is section 2 content.</p>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Absolute Position Example</title>
+  <style>
+    .absolute-container {
+      position: relative; /* Creates positioning context */
+      width: 400px;
+      height: 300px;
+      background: #f8f9fa;
+      border: 2px dashed #6c757d;
+      margin: 20px auto;
+    }
+    .absolute-item {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #28a745;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 4px;
+    }
+    /* Corner positioning examples */
+    .top-left {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: #007bff;
+      color: white;
+      padding: 6px 10px;
+    }
+    .top-right {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: #17a2b8;
+      color: white;
+      padding: 6px 10px;
+    }
+    .bottom-left {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background: #ffc107;
+      color: black;
+      padding: 6px 10px;
+    }
+    .bottom-right {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      background: #dc3545;
+      color: white;
+      padding: 6px 10px;
+    }
+    /* Centered absolute positioning */
+    .absolute-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #6f42c1;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 6px;
+    }
+    /* Stretched absolute positioning */
+    .absolute-stretched {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 2px solid #28a745;
+      pointer-events: none; /* So it doesn’t block clicks */
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Position: Absolute Example</h2>
+
+  <div class="absolute-container">
+    <!-- Corner examples -->
+    <div class="top-left">Top Left</div>
+    <div class="top-right">Top Right</div>
+    <div class="bottom-left">Bottom Left</div>
+    <div class="bottom-right">Bottom Right</div>
+
+    <!-- Centered box -->
+    <div class="absolute-center">Centered</div>
+
+    <!-- Overlay stretched border -->
+    <div class="absolute-stretched"></div>
+  </div>
+
+</body>
+</html>

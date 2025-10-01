@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pseudo-Element Demo</title>
+  <style>
+    /* ===== YOUR CSS (same as given) ===== */
+    /* First line and letter */
+    p::first-line {
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    p::first-letter {
+      font-size: 3em;
+      font-weight: bold;
+      float: left;
+      margin: 0.1em 0.1em 0.1em 0;
+      color: #007acc;
+      line-height: 0.8;
+    }
+    /* Drop cap effect */
+    .drop-cap::first-letter {
+      font-size: 4em;
+      font-family: serif;
+      font-weight: bold;
+      float: left;
+      margin: 0.1em 0.1em 0 0;
+      padding: 0.1em;
+      background: linear-gradient(45deg, #007acc, #28a745);
+      color: white;
+      border-radius: 4px;
+    }
+    /* Before and after content */
+    .quote {
+      position: relative;
+      margin: 20px;
+      padding: 10px;
+      font-style: italic;
+    }
+    .quote::before {
+      content: "❝";
+      font-size: 2em;
+      color: #007acc;
+      position: absolute;
+      left: -0.5em;
+      top: -0.2em;
+    }
+    .quote::after {
+      content: "❞";
+      font-size: 2em;
+      color: #007acc;
+      position: absolute;
+      right: -0.5em;
+      bottom: -0.5em;
+    }
+    /* Icon additions */
+    .external-link::after {
+      content: " ↗";
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+    .required-field::after {
+      content: " *";
+      color: #dc3545;
+      font-weight: bold;
+    }
+    .email::before {
+      content: "📧 ";
+    }
+    .phone::before {
+      content: "📞 ";
+    }
+    /* Counter usage */
+    body {
+      counter-reset: section;
+    }
+    h2::before {
+      counter-increment: section;
+      content: "Section " counter(section) ": ";
+      color: #007acc;
+      font-weight: bold;
+    }
+    /* Tooltip */
+    .tooltip {
+      position: relative;
+      cursor: pointer;
+      color: #007acc;
+      border-bottom: 1px dashed #007acc;
+    }
+    .tooltip::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #333;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+      font-size: 0.8em;
+    }
+    .tooltip::before {
+      content: "";
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 5px solid transparent;
+      border-top-color: #333;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+    }
+    .tooltip:hover::after,
+    .tooltip:hover::before {
+      opacity: 1;
+      visibility: visible;
+    }
+    /* List styling */
+    ul.custom-list {
+      list-style: none;
+      padding: 0;
+    }
+    ul.custom-list li::before {
+      content: "✓ ";
+      color: #28a745;
+      font-weight: bold;
+      margin-right: 8px;
+    }
+    ol.fancy-list {
+      list-style: none;
+      counter-reset: fancy-counter;
+    }
+    ol.fancy-list li::before {
+      counter-increment: fancy-counter;
+      content: counter(fancy-counter);
+      background: #007acc;
+      color: white;
+      font-weight: bold;
+      padding: 2px 6px;
+      border-radius: 50%;
+      margin-right: 10px;
+      font-size: 0.8em;
+    }
+    /* Selection styling */
+    ::selection {
+      background: #007acc;
+      color: white;
+    }
+    ::-moz-selection {
+      background: #007acc;
+      color: white;
+    }
+    /* Placeholder styling */
+    input::placeholder {
+      color: #6c757d;
+      font-style: italic;
+      opacity: 0.7;
+    }
+    /* File input styling */
+    input[type="file"]::file-selector-button {
+      background: #007acc;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    /* Scrollbar styling */
+    ::-webkit-scrollbar {
+      width: 12px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 6px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #007acc;
+      border-radius: 6px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Pseudo-Elements Showcase</h1>
+
+  <!-- Paragraphs -->
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. This paragraph uses ::first-line and ::first-letter styling.</p>
+  <p class="drop-cap">This one has a drop cap effect applied using a special class.</p>
+
+  <!-- Quote -->
+  <div class="quote">CSS pseudo-elements can create decorative effects without extra HTML.</div>
+
+  <!-- Links -->
+  <p>
+    <a href="https://google.com" class="external-link" target="_blank">Visit Google</a>
+  </p>
+
+  <!-- Required fields -->
+  <form>
+    <label class="required-field">Name:</label>
+    <input type="text" placeholder="Enter your name"><br>
+
+    <label class="email">Email:</label>
+    <input type="email" placeholder="Enter email"><br>
+
+    <label class="phone">Phone:</label>
+    <input type="tel" placeholder="Enter phone"><br>
+
+    <label>Upload File:</label>
+    <input type="file"><br>
+  </form>
+
+  <!-- Counters -->
+  <h2>Introduction</h2>
+  <p>Some content in section 1.</p>
+
+  <h2>Details</h2>
+  <p>Some content in section 2.</p>
+
+  <h2>Conclusion</h2>
+  <p>Some content in section 3.</p>
+
+  <!-- Tooltip -->
+  <p>Hover over this <span class="tooltip" data-tooltip="I am a tooltip!">word</span> to see a tooltip.</p>
+
+  <!-- Custom Lists -->
+  <h3>Custom Unordered List</h3>
+  <ul class="custom-list">
+    <li>First item</li>
+    <li>Second item</li>
+    <li>Third item</li>
+  </ul>
+
+  <h3>Fancy Ordered List</h3>
+  <ol class="fancy-list">
+    <li>Step one</li>
+    <li>Step two</li>
+    <li>Step three</li>
+  </ol>
+
+  <p>Try selecting this text to see custom <b>::selection</b> styling.</p>
+
+</body>
+</html>

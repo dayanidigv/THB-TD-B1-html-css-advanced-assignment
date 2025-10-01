@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advanced Media Queries Example</title>
+<style>
+  /* Paste your CSS here */
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  .hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #007acc;
+    color: white;
+  }
+  .image-gallery {
+    display: grid;
+    gap: 10px;
+    margin: 20px;
+  }
+  .image-gallery div {
+    background: #28a745;
+    color: white;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .nav {
+    display: flex;
+    background: #2196f3;
+    color: white;
+  }
+  .nav-item {
+    padding: 10px 20px;
+    flex: 1;
+    text-align: center;
+  }
+  .button {
+    background: #ff9800;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 10px;
+  }
+  .card {
+    background: #f8f9fa;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+  .widescreen-content {
+    background: #e0e0e0;
+    padding: 20px;
+  }
+  .high-res-image {
+    width: 200px;
+    height: 100px;
+    background-color: #ccc;
+    margin: 10px;
+  }
+</style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <div class="nav">
+    <div class="nav-item">Home</div>
+    <div class="nav-item">About</div>
+    <div class="nav-item">Services</div>
+    <div class="nav-item">Contact</div>
+  </div>
+
+  <!-- Hero section -->
+  <div class="hero">
+    <h1>Hero Section</h1>
+  </div>
+
+  <!-- Image gallery -->
+  <div class="image-gallery">
+    <div>Image 1</div>
+    <div>Image 2</div>
+    <div>Image 3</div>
+    <div>Image 4</div>
+  </div>
+
+  <!-- Buttons for pointer and hover demo -->
+  <button class="button">Click Me</button>
+  <button class="button">Hover Me</button>
+
+  <!-- Card for hover/interaction demo -->
+  <div class="card">
+    <h2>Card Title</h2>
+    <p>This card demonstrates hover effects and media queries.</p>
+  </div>
+
+  <!-- Widescreen content for aspect ratio demo -->
+  <div class="widescreen-content">
+    <p>Content visible only on widescreen (16:9+)</p>
+  </div>
+
+  <!-- High-res image placeholder -->
+  <div class="high-res-image">
+    High-Res Image
+  </div>
+
+  <!-- Example for printing -->
+  <div class="no-print">
+    This section will not print.
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Touch and Gesture Events</title>
+<style>
+  .touch-box {
+    width: 200px;
+    height: 200px;
+    background: #007acc;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    user-select: none;
+    touch-action: none; /* Prevent default scrolling/pinch behavior */
+  }
+  .gesture-box {
+    width: 200px;
+    height: 200px;
+    background: #28a745;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    user-select: none;
+    touch-action: none;
+  }
+</style>
+</head>
+<body>
+
+<div class="touch-box" id="touchBox">Touch me (mobile)</div>
+<div class="gesture-box" id="gestureBox">Pinch to zoom (iOS Safari)</div>
+
+<script>
+  // Touch events
+  const touchBox = document.getElementById('touchBox');
+
+  touchBox.addEventListener('touchstart', (e) => {
+    touchBox.style.backgroundColor = '#0056b3';
+    console.log('Touch started', e.touches);
+  });
+
+  touchBox.addEventListener('touchmove', (e) => {
+    console.log('Touch moved', e.touches);
+  });
+
+  touchBox.addEventListener('touchend', (e) => {
+    touchBox.style.backgroundColor = '#007acc';
+    console.log('Touch ended', e.changedTouches);
+  });
+
+  // Gesture events (iOS Safari only)
+  const gestureBox = document.getElementById('gestureBox');
+
+  gestureBox.addEventListener('gesturestart', (e) => {
+    console.log('Gesture started', e.scale);
+  });
+
+  gestureBox.addEventListener('gesturechange', (e) => {
+    gestureBox.style.transform = `scale(${e.scale})`;
+    console.log('Gesture changing', e.scale);
+  });
+
+  gestureBox.addEventListener('gestureend', (e) => {
+    gestureBox.style.transform = 'scale(1)';
+    console.log('Gesture ended', e.scale);
+  });
+</script>
+
+</body>
+</html>

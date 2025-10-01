@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Box Model & Spacing Demo</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* (Your CSS pasted here for standalone demo) */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    .box-content {
+      box-sizing: content-box;
+      width: 300px;
+      height: 200px;
+      padding: 20px;
+      border: 5px solid #007acc;
+      margin: 10px;
+      background: #eaf4ff;
+    }
+    .box-border {
+      box-sizing: border-box;
+      width: 300px;
+      height: 200px;
+      padding: 20px;
+      border: 5px solid #007acc;
+      margin: 10px;
+      background: #d1f7e6;
+    }
+    .margin-demo {
+      background: #f8d7da;
+      margin: 0 auto; /* final value */
+      width: 200px;
+      text-align: center;
+    }
+    .padding-demo {
+      background: #e2e3e5;
+      padding: 25px;
+      width: 200px;
+    }
+    .border-demo {
+      background: #fff3cd;
+      padding: 20px;
+    }
+    .spacing-system {
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2rem;
+      --space-2xl: 3rem;
+      --space-3xl: 4rem;
+    }
+    .space-xs { margin: var(--space-xs); background:#cce5ff;}
+    .space-sm { margin: var(--space-sm); background:#d4edda;}
+    .space-md { margin: var(--space-md); background:#fff3cd;}
+    .space-lg { margin: var(--space-lg); background:#f8d7da;}
+    .space-xl { margin: var(--space-xl); background:#e2e3e5;}
+    .negative-margin {
+      background: #d6d8d9;
+      margin-top: -10px;
+      margin-left: -20px;
+      width: 150px;
+    }
+    .margin-collapse-fix {
+      background: #fefefe;
+      padding: 1px 0;
+    }
+    .overflow-demo {
+      width: 200px;
+      height: 100px;
+      border: 2px solid #007acc;
+      overflow: auto;
+      background: #f1f1f1;
+    }
+    .responsive-box {
+      width: 100%;
+      max-width: 600px;
+      min-width: 300px;
+      height: auto;
+      min-height: 200px;
+      max-height: 400px;
+      background: #cce5ff;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body class="spacing-system">
+
+  <h1>Box Model & Spacing Examples</h1>
+
+  <h2>Content-box vs Border-box</h2>
+  <div class="box-content">Content-box (width excludes border + padding)</div>
+  <div class="box-border">Border-box (width includes border + padding)</div>
+
+  <h2>Margin Example</h2>
+  <div class="margin-demo">Centered with auto margin</div>
+
+  <h2>Padding Example</h2>
+  <div class="padding-demo">Extra space inside due to padding</div>
+
+  <h2>Border Example</h2>
+  <div class="border-demo">Borders with different styles and colors</div>
+
+  <h2>Spacing System</h2>
+  <div class="space-xs">XS margin</div>
+  <div class="space-sm">SM margin</div>
+  <div class="space-md">MD margin</div>
+  <div class="space-lg">LG margin</div>
+  <div class="space-xl">XL margin</div>
+
+  <h2>Negative Margin</h2>
+  <div style="background:#e9ecef; padding:20px;">
+    <div class="negative-margin">Shifted with negative margin</div>
+  </div>
+
+  <h2>Margin Collapse Fix</h2>
+  <div class="margin-collapse-fix">
+    <p style="margin:20px 0;">Inside a wrapper with padding (prevents collapse)</p>
+  </div>
+
+  <h2>Overflow Demo</h2>
+  <div class="overflow-demo">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+    This text is longer than the box height so you’ll see scrollbars.
+  </div>
+
+  <h2>Responsive Box (Min/Max)</h2>
+  <div class="responsive-box">
+    Resize the window → this box has min/max width & height constraints.
+  </div>
+
+</body>
+</html>

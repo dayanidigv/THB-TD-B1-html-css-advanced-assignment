@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Static Position Demo</title>
+  <style>
+    .static-element {
+      position: static; /* Default value */
+      background-color: #007acc;
+      color: white;
+      padding: 20px;
+      margin: 10px;
+      border-radius: 6px;
+    }
+    .other-box {
+      background-color: #28a745;
+      color: white;
+      padding: 20px;
+      margin: 10px;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Position: Static Example</h2>
+
+  <div class="static-element">
+    I am a <strong>static element</strong>.  
+    (top, left, right, bottom do not affect me.)
+  </div>
+
+  <div class="other-box">
+    I am another normal block after the static element.
+  </div>
+
+</body>
+</html>

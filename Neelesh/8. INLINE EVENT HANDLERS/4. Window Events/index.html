@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window Events</title>
+</head>
+<body>
+    <!-- Page load events -->
+<body onload="initializePage()" onunload="cleanup()">
+<!-- Window resize -->
+<div id="responsive-content"
+onresize="adjustLayout()"
+style="width: 100%; height: 200px; background: #f0f0f0;">
+Resize the window
+</div>
+<!-- Scroll events -->
+<div onscroll="handleScroll(this)"
+style="height: 200px; overflow-y: scroll;">
+<div style="height: 500px;">Scrollable content</div>
+</div>
+
+</body>
+</html>

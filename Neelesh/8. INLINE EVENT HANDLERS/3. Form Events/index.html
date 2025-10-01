@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    <!-- Form submission -->
+<form onsubmit="return validateForm(this)">
+    <legend>Personal Information</legend>
+
+<label for="fullname">Full Name </label>    
+<input type="email" 
+oninput="validateEmail(this)"
+onchange="checkEmailAvailability(this)"
+required>
+
+<br><br>
+
+<!-- Real-time validation -->
+ <label for="Password">Password </label>    
+<input type="password"
+oninput="checkPasswordStrength(this)"
+onpaste="return false"
+placeholder="Password">
+<br><br>
+<select onchange="updateOptions(this)">
+<option value="">Choose...</option>
+<option value="option1">Student</option>
+<option value="option2">Professional</option>
+
+<!-- File upload -->
+ <label for="Select">Select the file </label> <br><br>   
+<input type="file"
+onchange="previewFile(this)"
+accept="image/*">
+<div id="preview"></div>
+
+</select>
+<input type="checkbox"
+onchange="toggleSection(this)"
+id="subscribe">
+<button type="submit">Submit</button>
+<button type="reset" onclick="clearForm()">Reset</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive Card</title>
+<style>
+  .interactive-card {
+    width: 250px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    outline: none;
+  }
+  .interactive-card.selected {
+    border-color: #007acc;
+  }
+  .interactive-card.editing {
+    border-color: #28a745;
+  }
+  .interactive-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    opacity: 0;
+  }
+  h3 {
+    margin: 10px 0;
+    font-size: 1.2rem;
+  }
+  button {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<div class="interactive-card" tabindex="0" role="button" aria-label="Interactive card">
+  <img src="card-image.jpg" alt="Card image">
+  <h3 contenteditable="true">Editable Title</h3>
+  <button>Delete</button>
+</div>
+
+<script>
+const card = document.querySelector('.interactive-card');
+const img = card.querySelector('img');
+const title = card.querySelector('h3');
+const deleteBtn = card.querySelector('button');
+
+// Selection
+card.addEventListener('click', () => {
+  document.querySelectorAll('.interactive-card').forEach(c => c.classList.remove('selected'));
+  card.classList.add('selected');
+});
+
+// Edit on double-click
+card.addEventListener('dblclick', () => {
+  card.classList.add('editing');
+  title.focus();
+});
+
+// Hover effects
+card.addEventListener('mouseover', () => {
+  card.style.transform = 'scale(1.05)';
+  card.style.boxShadow = '0 8px 16px rgba(0,0,0,0.2)';
+});
+card.addEventListener('mouseout', () => {
+  card.style.transform = 'scale(1)';
+  card.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
+});
+
+// Keyboard support
+card.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' || e.key === ' ') {
+    e.preventDefault();
+    card.click();
+  } else if (e.key === 'Delete') {
+    deleteCard();
+  }
+});
+
+// Editable title
+title.addEventListener('input', () => {
+  console.log('Title changed to:', title.textContent);
+});
+title.addEventListener('blur', () => {
+  card.classList.remove('editing');
+});
+
+// Delete button
+deleteBtn.addEventListener('click', (e) => {
+  e.stopPropagation(); // Prevent card selection
+  deleteCard();
+});
+
+// Delete function
+function deleteCard() {
+  if (confirm('Are you sure you want to delete this card?')) {
+    card.remove();
+  }
+}
+
+// Image load/error
+img.addEventListener('load', () => {
+  img.style.opacity = '1';
+  img.style.transition = 'opacity 0.3s ease';
+});
+img.addEventListener('error', () => {
+  img.src = 'placeholder.jpg';
+  img.alt = 'Image failed to load';
+});
+</script>
+
+</body>
+</html>

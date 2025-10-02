@@ -1,0 +1,56 @@
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  padding: 20px;
+}
+form {
+  max-width: 500px;
+  margin: auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+fieldset {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+legend {
+  font-weight: bold;
+  color: #007acc;
+}
+label {
+  display: block;
+  margin: 8px 0 4px;
+  font-weight: bold;
+}
+input, select, textarea, button {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+input[required], select[required] {
+  border-left: 3px solid #dc3545;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: #007acc;
+  outline: none;
+  box-shadow: 0 0 4px rgba(0,122,204,0.3);
+}
+button {
+  background: #007acc;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+button:hover {
+  background: #005f99;
+}

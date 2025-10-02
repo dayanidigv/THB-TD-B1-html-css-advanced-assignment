@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Form with validation messages -->
+<form>
+<label for="username">Username</label>
+<input type="text" id="username" name="username" required
+pattern="[a-zA-Z0-9]{3,20}"
+title="Username must be 3-20 characters, letters and numbers only"
+aria-describedby="username-help">
+<div id="username-help">3-20 characters, letters and numbers only</div>
+<!-- Custom validation -->
+<label for="confirm-password">Confirm Password</label>
+<input type="password" id="confirm-password" name="confirm-password"
+oninput="validatePassword(this)" required>
+<!-- Datalist for autocomplete -->
+<label for="city">City</label>
+<input type="text" id="city" name="city" list="cities">
+<datalist id="cities">
+<option value="New York">
+<option value="Los Angeles">
+<option value="Chicago">
+<option value="Houston">
+</datalist>
+</form>
+</body>
+</html>

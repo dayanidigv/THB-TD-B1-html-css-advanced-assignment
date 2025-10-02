@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px; 
+    align-items: center;
+}
+
+iframe {
+    border: 2px solid #ddd;   
+    border-radius: 10px;         
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+    max-width: 100%;            
+    display: block;
+}
+
+iframe[src*="youtube.com"],
+iframe[src*="google.com/maps"] {
+    aspect-ratio: 16 / 9;    
+    width: 100%;               
+}
+iframe[src*="image.html"] {
+    width: 100%;                
+    max-width: 800px;           
+    height: 400px;              
+}
+
+iframe:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+}
+@media (max-width: 768px) {
+    iframe {
+        border-radius: 6px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+}

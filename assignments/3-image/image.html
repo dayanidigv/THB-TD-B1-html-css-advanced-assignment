@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Images Example</title>
+    <link rel="stylesheet" href="image.css">
+</head>
+<body>
+    <img src="download.png" 
+         alt="Sample landscape photo" 
+         width="400" 
+         height="300">
+
+    <picture>
+        <source media="(min-width: 800px)" srcset="wide-image.jpg">
+        <source media="(min-width: 400px)" srcset="medium-image.jpg">
+    </picture>
+    <figure>
+        <img src="images (2).png" 
+             alt="Sales growth chart showing 25% increase">
+        <figcaption>
+            <strong>Figure 1:</strong> Sales growth over the last quarter
+        </figcaption>
+    </figure>
+
+</body>
+</html>

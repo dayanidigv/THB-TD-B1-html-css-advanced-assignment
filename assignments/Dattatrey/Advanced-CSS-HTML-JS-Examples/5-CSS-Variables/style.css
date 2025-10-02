@@ -1,0 +1,113 @@
+/* Global variables */
+:root {
+    /* Colors */
+    --primary-500: #2196f3;
+    --primary-600: #1e88e5;
+    --secondary-500: #4caf50;
+
+    /* Spacing */
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+
+    /* Border radius */
+    --radius-md: 0.375rem;
+    --radius-lg: 0.5rem;
+
+    /* Shadows */
+    --shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+
+    /* Transitions */
+    --transition-base: 250ms ease-in-out;
+
+    /* Typography */
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-weight-medium: 500;
+}
+
+body {
+    font-family: sans-serif;
+    padding: 20px;
+}
+
+h1, h2 {
+    margin-bottom: 20px;
+}
+
+/* Component-level variables */
+.button {
+    --button-bg: var(--primary-500);
+    --button-color: white;
+    --button-padding: var(--space-3) var(--space-6);
+    --button-radius: var(--radius-md);
+    --button-transition: var(--transition-base);
+
+    background-color: var(--button-bg);
+    color: var(--button-color);
+    padding: var(--button-padding);
+    border-radius: var(--button-radius);
+    transition: var(--button-transition);
+    border: none;
+    cursor: pointer;
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-base);
+    margin-right: 10px;
+}
+
+.button:hover {
+    --button-bg: var(--primary-600);
+}
+
+.button--secondary {
+    --button-bg: var(--secondary-500);
+}
+
+.button--large {
+    --button-padding: var(--space-4) var(--space-8);
+    font-size: var(--font-size-lg);
+}
+
+/* Card component with variables */
+.card {
+    --card-bg: white;
+    --card-border: 1px solid #e2e8f0;
+    --card-radius: var(--radius-lg);
+    --card-shadow: var(--shadow-base);
+    --card-padding: var(--space-6);
+
+    background: var(--card-bg);
+    border: var(--card-border);
+    border-radius: var(--card-radius);
+    box-shadow: var(--card-shadow);
+    padding: var(--card-padding);
+    margin-top: 20px;
+}
+
+/* Theme variations using variables */
+.theme-dark {
+    --primary-500: #3b82f6;
+    --card-bg: #1f2937;
+    --card-border: 1px solid #374151;
+    color: white;
+    background-color: #111827;
+}
+
+/* Conditional variables with fallbacks */
+.conditional-style {
+    color: var(--custom-color, var(--primary-500));
+    margin-top: var(--custom-margin, var(--space-4));
+    font-size: var(--custom-font-size, var(--font-size-base));
+    border: 1px solid;
+    padding: 10px;
+}
+
+/* Mathematical calculations with variables */
+.calculated-spacing {
+    padding: calc(var(--space-4) * 2);
+    margin-top: calc(var(--space-4) + 10px);
+    width: calc(100% - var(--space-8));
+    background-color: #f0f8ff;
+    border: 1px solid #bde0ff;
+}

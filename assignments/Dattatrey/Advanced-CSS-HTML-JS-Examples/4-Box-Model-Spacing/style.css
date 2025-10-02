@@ -1,0 +1,108 @@
+/* Global box-sizing reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    padding: 20px;
+}
+
+h1 {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+hr {
+    margin: 40px 0;
+    border: 0;
+    border-top: 1px solid #eee;
+}
+
+/* Box model examples */
+.box-content {
+    box-sizing: content-box; /* Default */
+    width: 300px;
+    height: 100px;
+    padding: 20px;
+    border: 5px solid #007acc;
+    margin: 10px;
+    background-color: #e3f2fd;
+    /* Total width: 300 (width) + 40 (padding) + 10 (border) = 350px */
+}
+
+.box-border {
+    box-sizing: border-box; /* Recommended */
+    width: 300px;
+    height: 100px;
+    padding: 20px;
+    border: 5px solid #007acc;
+    margin: 10px;
+    background-color: #e3f2fd;
+    /* Total width: 300px (includes padding and border) */
+}
+
+/* Margin examples */
+.margin-demo {
+    margin: 20px; /* All sides */
+    background-color: #d1eddd;
+    border: 1px solid #28a745;
+}
+
+/* Padding examples */
+.padding-demo {
+    padding: 15px; /* All sides */
+    background-color: #fff3cd;
+    border: 1px solid #ffc107;
+}
+
+/* Border examples */
+.border-demo {
+    border: 2px solid #007acc; /* Width | Style | Color */
+    border-radius: 8px; /* All corners */
+    padding: 20px;
+    margin-top: 20px;
+}
+
+/* Advanced spacing techniques */
+.spacing-system {
+    --space-md: 1rem; /* 16px */
+}
+.space-md { margin: var(--space-md); background-color: #f8d7da; padding: 10px; }
+
+/* Negative margins */
+.negative-margin {
+    margin-top: -10px;
+    margin-left: -20px;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+/* Margin collapse prevention */
+.margin-collapse-fix {
+    padding: 1px 0; /* Prevents margin collapse */
+    background-color: #e9ecef;
+}
+
+/* Overflow control */
+.overflow-demo {
+    width: 200px;
+    height: 100px;
+    overflow: auto; /* Show scrollbars when needed */
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+/* Max/Min dimensions */
+.responsive-box {
+    width: 100%;
+    max-width: 600px;
+    min-width: 300px;
+    height: auto;
+    min-height: 100px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    padding: 20px;
+}

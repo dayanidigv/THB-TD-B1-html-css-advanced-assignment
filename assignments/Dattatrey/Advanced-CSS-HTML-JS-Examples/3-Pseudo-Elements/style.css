@@ -1,0 +1,224 @@
+/* General Styling */
+body {
+    font-family: sans-serif;
+    padding: 20px;
+    line-height: 1.6;
+    counter-reset: section;
+}
+
+h1, h2 {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+    margin-top: 30px;
+}
+
+hr {
+    margin: 30px 0;
+    border: 0;
+    border-top: 1px solid #eee;
+}
+
+/* First line and letter */
+p::first-line {
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+p::first-letter {
+    font-size: 3em;
+    font-weight: bold;
+    float: left;
+    margin: 0.1em 0.1em 0.1em 0;
+    color: #007acc;
+    line-height: 0.8;
+}
+
+/* Drop cap effect */
+.drop-cap::first-letter {
+    font-size: 4em;
+    font-family: serif;
+    font-weight: bold;
+    float: left;
+    margin: 0.1em 0.1em 0 0;
+    padding: 0.1em;
+    background: linear-gradient(45deg, #007acc, #28a745);
+    color: white;
+    border-radius: 4px;
+}
+
+/* Before and after content */
+.quote-container {
+    position: relative;
+    padding: 0 2em;
+}
+.quote::before {
+    content: "“";
+    font-size: 2em;
+    color: #007acc;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.quote::after {
+    content: "”";
+    font-size: 2em;
+    color: #007acc;
+    position: absolute;
+    right: 0;
+    bottom: -0.2em;
+}
+
+/* Icon additions */
+.external-link::after {
+    content: " ↗";
+    font-size: 0.8em;
+    color: #6c757d;
+}
+
+.required-field::after {
+    content: " *";
+    color: #dc3545;
+    font-weight: bold;
+}
+
+.email::before {
+    content: "📧 ";
+}
+
+.phone::before {
+    content: "📞 ";
+}
+
+/* Counter usage */
+h2::before {
+    counter-increment: section;
+    content: "Section " counter(section) ": ";
+    color: #007acc;
+    font-weight: bold;
+}
+
+/* Tooltip using pseudo-elements */
+.tooltip {
+    position: relative;
+    cursor: pointer;
+    border-bottom: 1px dotted #333;
+}
+
+.tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 125%; /* Position above the text */
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    font-size: 0.8em;
+    z-index: 1;
+}
+
+.tooltip::before {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: #333;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 1;
+}
+
+.tooltip:hover::after,
+.tooltip:hover::before {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* List styling */
+ul.custom-list {
+    list-style: none;
+    padding: 0;
+}
+
+ul.custom-list li::before {
+    content: "✓ ";
+    color: #28a745;
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+ol.fancy-list {
+    list-style: none;
+    counter-reset: fancy-counter;
+    padding: 0;
+}
+
+ol.fancy-list li {
+    margin-bottom: 10px;
+}
+
+ol.fancy-list li::before {
+    counter-increment: fancy-counter;
+    content: counter(fancy-counter);
+    background: #007acc;
+    color: white;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 50%;
+    margin-right: 10px;
+    font-size: 0.8em;
+}
+
+/* Selection styling */
+::selection {
+    background: #007acc;
+    color: white;
+}
+
+::-moz-selection { /* Firefox */
+    background: #007acc;
+    color: white;
+}
+
+/* Placeholder styling */
+input::placeholder {
+    color: #6c757d;
+    font-style: italic;
+    opacity: 0.7;
+}
+
+input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: #6c757d;
+    font-style: italic;
+}
+
+input::-moz-placeholder { /* Firefox */
+    color: #6c757d;
+    font-style: italic;
+    opacity: 1;
+}
+
+/* File input styling */
+input[type="file"]::file-selector-button {
+    background: #007acc;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background: #0056b3;
+}

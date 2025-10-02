@@ -1,0 +1,51 @@
+body {
+    font-family: sans-serif;
+    padding: 20px;
+}
+
+h1, h2 {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 15px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.event-box {
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+input {
+    padding: 10px;
+    font-size: 1em;
+    margin-top: 10px;
+    display: block;
+}
+
+form {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+.interactive-card {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.interactive-card.selected {
+    border-color: #007acc;
+    box-shadow: 0 0 10px rgba(0, 122, 204, 0.5);
+}

@@ -1,0 +1,120 @@
+body {
+    font-family: sans-serif;
+    padding-top: 80px; /* For fixed header */
+    margin: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2 {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Static Positioning (Default) */
+.static-element {
+    position: static;
+    background: #f0f0f0;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+/* Relative Positioning */
+.relative-container {
+    position: relative;
+    width: 300px;
+    height: 150px;
+    background: #f0f0f0;
+    border: 2px solid #ddd;
+}
+.relative-item {
+    position: relative;
+    top: 20px;
+    left: 30px;
+    background: #007acc;
+    color: white;
+    padding: 10px;
+    width: 100px;
+}
+
+/* Absolute Positioning */
+.absolute-container {
+    position: relative; /* Creates positioning context */
+    width: 400px;
+    height: 200px;
+    background: #f8f9fa;
+    border: 2px dashed #6c757d;
+    margin-top: 20px;
+}
+.absolute-item {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #28a745;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+.absolute-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #dc3545;
+    color: white;
+    padding: 10px;
+}
+
+/* Fixed Positioning */
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: #007acc;
+    color: white;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+}
+.fixed-fab {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #007acc;
+    color: white;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    cursor: pointer;
+    z-index: 1001;
+    font-size: 24px;
+}
+
+/* Sticky Positioning */
+.sticky-container {
+    height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+}
+.sticky-nav {
+    position: sticky;
+    top: 0;
+    background: white;
+    border-bottom: 1px solid #dee2e6;
+    z-index: 100;
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+}

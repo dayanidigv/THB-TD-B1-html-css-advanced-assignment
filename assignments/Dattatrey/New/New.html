@@ -1,0 +1,1330 @@
+� ADVANCED CSS SELECTORS & STYLING
+1. Attribute Selectors
+}
+/* Attribute ends with value */
+a[href$=".pdf"] {
+color: #dc3545;
+text-decoration: underline;
+}
+a[href$=".zip"] {
+font-weight: bold;
+}
+img[src$=".svg"] {
+filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+}
+/* Attribute contains word (space-separated) */
+img[alt~="photo"] {
+border-radius: 8px;
+}
+div[class~="featured"] {
+background-color: #fff3cd;
+}
+/* Attribute starts with value followed by hyphen */
+p[lang|="en"] {
+font-family: "Times New Roman", serif;
+}
+/* Case-insensitive matching */
+input[type="email" i] {
+background: #f0f8ff;
+}
+/* Multiple attribute selectors */
+input[type="text"][required] {
+border: 2px solid #ffc107;
+}
+button[type="submit"][disabled] {
+opacity: 0.5;
+cursor: not-allowed;
+}
+/* Link states */
+a:link {
+color: #007acc;
+text-decoration: none;
+}
+2. Pseudo-classes
+User Action Pseudo-classes:
+a:visited {
+color: #6f42c1;
+}
+a:hover {
+color: #0056b3;
+text-decoration: underline;
+transform: translateY(-1px);
+transition: all 0.2s ease;
+}
+a:active {
+color: #004085;
+transform: translateY(0);
+}
+a:focus {
+outline: 2px solid #007acc;
+outline-offset: 2px;
+}
+/* Form element states */
+input:focus {
+border-color: #007acc;
+box-shadow: 0 0 0 3px rgba(0, 122, 204, 0.1);
+}
+input:hover {
+border-color: #6c757d;
+}
+input:invalid {
+border-color: #dc3545;
+background-color: #f8d7da;
+}
+input:valid {
+border-color: #28a745;
+background-color: #d1eddd;
+}
+input:required {
+box-shadow: inset 0 0 5px rgba(220, 53, 69, 0.2);
+}
+input:optional {
+box-shadow: inset 0 0 5px rgba(40, 167, 69, 0.2);
+}
+input:disabled {
+opacity: 0.6;
+cursor: not-allowed;
+background-color: #e9ecef;
+}
+input:enabled {
+cursor: text;
+}
+input:checked + label {
+font-weight: bold;
+color: #007acc;
+}
+input:indeterminate {
+opacity: 0.7;
+}
+/* Button states */
+button:hover {
+background-color: #0056b3;
+transform: translateY(-2px);
+box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+button:active {
+transform: translateY(0);
+box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+/* Child selectors */
+li:first-child {
+font-weight: bold;
+color: #007acc;
+}
+li:last-child {
+border-bottom: none;
+margin-bottom: 0;
+}
+li:only-child {
+text-align: center;
+font-style: italic;
+}
+/* Nth-child patterns */
+tr:nth-child(odd) {
+background-color: #f8f9fa;
+}
+tr:nth-child(even) {
+background-color: #ffffff;
+}
+li:nth-child(3n) {
+color: #dc3545;
+}
+Structural Pseudo-classes:
+li:nth-child(3n+1) {
+color: #28a745;
+}
+li:nth-child(3n+2) {
+color: #007acc;
+}
+/* Start from specific position */
+li:nth-child(n+3) {
+margin-top: 10px;
+}
+li:nth-child(-n+3) {
+font-weight: bold;
+}
+/* Type-based selectors */
+h2:first-of-type {
+margin-top: 0;
+font-size: 2em;
+}
+h2:last-of-type {
+margin-bottom: 0;
+}
+p:nth-of-type(2) {
+font-style: italic;
+}
+img:only-of-type {
+display: block;
+margin: 0 auto;
+}
+/* Content-based selectors */
+p:empty {
+display: none;
+}
+div:not(.special) {
+color: #6c757d;
+}
+input:not([type="hidden"]) {
+margin-bottom: 10px;
+}
+/* Root and target */
+:root {
+--primary-color: #007acc;
+}
+:target {
+background-color: #fff3cd;
+padding: 20px;
+border-left: 4px solid #ffc107;
+}
+/* First line and letter */
+p::first-line {
+font-weight: bold;
+text-transform: uppercase;
+letter-spacing: 1px;
+}
+p::first-letter {
+font-size: 3em;
+font-weight: bold;
+float: left;
+margin: 0.1em 0.1em 0.1em 0;
+color: #007acc;
+line-height: 0.8;
+}
+/* Drop cap effect */
+.drop-cap::first-letter {
+font-size: 4em;
+font-family: serif;
+font-weight: bold;
+float: left;
+margin: 0.1em 0.1em 0 0;
+padding: 0.1em;
+background: linear-gradient(45deg, #007acc, #28a745);
+color: white;
+border-radius: 4px;
+}
+/* Before and after content */
+.quote::before {
+content: """;
+font-size: 2em;
+color: #007acc;
+position: absolute;
+left: -0.5em;
+top: -0.2em;
+}
+.quote::after {
+content: """;
+font-size: 2em;
+color: #007acc;
+position: absolute;
+right: -0.5em;
+bottom: -0.5em;
+}
+3. Pseudo-elements
+/* Icon additions */
+.external-link::after {
+content: " ↗";
+font-size: 0.8em;
+color: #6c757d;
+}
+.required-field::after {
+content: " *";
+color: #dc3545;
+font-weight: bold;
+}
+.email::before {
+content: "📧 ";
+}
+.phone::before {
+content: "📞 ";
+}
+/* Counter usage */
+body {
+counter-reset: section;
+}
+h2::before {
+counter-increment: section;
+content: "Section " counter(section) ": ";
+color: #007acc;
+font-weight: bold;
+}
+/* Tooltip using pseudo-elements */
+.tooltip {
+position: relative;
+}
+.tooltip::after {
+content: attr(data-tooltip);
+position: absolute;
+bottom: 100%;
+left: 50%;
+transform: translateX(-50%);
+background: #333;
+color: white;
+padding: 5px 10px;
+border-radius: 4px;
+white-space: nowrap;
+opacity: 0;
+visibility: hidden;
+transition: all 0.3s;
+font-size: 0.8em;
+}
+.tooltip::before {
+content: "";
+position: absolute;
+bottom: 100%;
+left: 50%;
+transform: translateX(-50%);
+border: 5px solid transparent;
+border-top-color: #333;
+opacity: 0;
+visibility: hidden;
+transition: all 0.3s;
+}
+.tooltip:hover::after,
+.tooltip:hover::before {
+opacity: 1;
+visibility: visible;
+}
+/* List styling */
+ul.custom-list {
+list-style: none;
+padding: 0;
+}
+ul.custom-list li::before {
+content: "✓ ";
+color: #28a745;
+font-weight: bold;
+margin-right: 8px;
+}
+ol.fancy-list {
+list-style: none;
+counter-reset: fancy-counter;
+}
+ol.fancy-list li::before {
+counter-increment: fancy-counter;
+content: counter(fancy-counter);
+background: #007acc;
+color: white;
+font-weight: bold;
+padding: 2px 6px;
+border-radius: 50%;
+margin-right: 10px;
+font-size: 0.8em;
+}
+/* Selection styling */
+::selection {
+background: #007acc;
+color: white;
+}
+::-moz-selection {
+background: #007acc;
+color: white;
+}
+/* Placeholder styling */
+input::placeholder {
+color: #6c757d;
+font-style: italic;
+opacity: 0.7;
+}
+input::-webkit-input-placeholder {
+color: #6c757d;
+font-style: italic;
+}
+input::-moz-placeholder {
+color: #6c757d;
+font-style: italic;
+opacity: 1;
+}
+/* File input styling */
+input[type="file"]::file-selector-button {
+background: #007acc;
+color: white;
+border: none;
+padding: 8px 16px;
+border-radius: 4px;
+margin-right: 10px;
+cursor: pointer;
+}
+/* Scrollbar styling (Webkit) */
+::-webkit-scrollbar {
+width: 12px;
+}
+::-webkit-scrollbar-track {
+background: #f1f1f1;
+border-radius: 6px;
+}
+::-webkit-scrollbar-thumb {
+background: #007acc;
+border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+background: #0056b3;
+}
+/* Global box-sizing reset */
+*, *::before, *::after {
+box-sizing: border-box;
+}
+/* Box model examples */
+.box-content {
+box-sizing: content-box; /* Default */
+width: 300px;
+height: 200px;
+padding: 20px;
+border: 5px solid #007acc;
+margin: 10px;
+/* Total width: 300 + 40 + 10 + 20 = 370px */
+}
+.box-border {
+box-sizing: border-box; /* Recommended */
+width: 300px;
+height: 200px;
+padding: 20px;
+border: 5px solid #007acc;
+margin: 10px;
+/* Total width: 300px (includes padding and border) */
+}
+/* Margin examples */
+.margin-demo {
+margin: 20px; /* All sides */
+margin: 10px 20px; /* Vertical | Horizontal */
+margin: 5px 10px 15px; /* Top | Horizontal | Bottom */
+margin: 5px 10px 15px 20px; /* Top | Right | Bottom | Left */
+margin-top: 10px;
+margin-right: 20px;
+margin-bottom: 15px;
+margin-left: 25px;
+margin: 0 auto; /* Center horizontally */
+}
+/* Padding examples */
+.padding-demo {
+padding: 15px; /* All sides */
+padding: 10px 20px; /* Vertical | Horizontal */
+padding: 5px 10px 15px; /* Top | Horizontal | Bottom */
+padding: 5px 10px 15px 20px; /* Top | Right | Bottom | Left */
+padding-top: 10px;
+padding-right: 20px;
+padding-bottom: 15px;
+padding-left: 25px;
+}
+4. Box Model & Spacing
+/* Border examples */
+.border-demo {
+border: 2px solid #007acc; /* Width | Style | Color */
+border-width: 1px 2px 3px 4px; /* Top | Right | Bottom | Left */
+border-style: solid dashed dotted double;
+border-color: red green blue yellow;
+border-top: 3px solid #dc3545;
+border-right: 2px dashed #28a745;
+border-bottom: 1px dotted #007acc;
+border-left: 4px double #ffc107;
+border-radius: 8px; /* All corners */
+border-radius: 10px 5px; /* Top-left & bottom-right | Top-right & bottom-left
+border-radius: 10px 5px 15px; /* Top-left | Top-right & bottom-left | Bottom-right
+border-radius: 10px 5px 15px 20px; /* Top-left | Top-right | Bottom-right | Bottom-le
+}
+/* Advanced spacing techniques */
+.spacing-system {
+--space-xs: 0.25rem; /* 4px */
+--space-sm: 0.5rem; /* 8px */
+--space-md: 1rem; /* 16px */
+--space-lg: 1.5rem; /* 24px */
+--space-xl: 2rem; /* 32px */
+--space-2xl: 3rem; /* 48px */
+--space-3xl: 4rem; /* 64px */
+}
+.space-xs { margin: var(--space-xs); }
+.space-sm { margin: var(--space-sm); }
+.space-md { margin: var(--space-md); }
+.space-lg { margin: var(--space-lg); }
+.space-xl { margin: var(--space-xl); }
+/* Negative margins */
+.negative-margin {
+margin-top: -10px;
+margin-left: -20px;
+}
+/* Margin collapse prevention */
+.margin-collapse-fix {
+padding: 1px 0; /* Prevents margin collapse */
+}
+/* Overflow control */
+.overflow-demo {
+width: 200px;
+height: 100px;
+overflow: hidden; /* Clip content */
+overflow: scroll; /* Always show scrollbars */
+overflow: auto; /* Show scrollbars when needed */
+overflow-x: hidden; /* Hide horizontal overflow */
+overflow-y: scroll; /* Vertical scrollbar */
+}
+/* Max/Min dimensions */
+.responsive-box {
+width: 100%;
+max-width: 600px;
+min-width: 300px;
+height: auto;
+min-height: 200px;
+max-height: 400px;
+}
+/* Global variables */
+:root {
+/* Colors */
+--primary-50: #e3f2fd;
+--primary-100: #bbdefb;
+--primary-200: #90caf9;
+--primary-300: #64b5f6;
+--primary-400: #42a5f5;
+--primary-500: #2196f3;
+--primary-600: #1e88e5;
+--primary-700: #1976d2;
+--primary-800: #1565c0;
+--primary-900: #0d47a1;
+--secondary-500: #4caf50;
+--accent-500: #ff9800;
+--error-500: #f44336;
+--warning-500: #ff5722;
+--success-500: #4caf50;
+/* Typography */
+--font-family-primary: 'Inter', system-ui, sans-serif;
+--font-family-secondary: 'Roboto Mono', monospace;
+--font-size-xs: 0.75rem; /* 12px */
+--font-size-sm: 0.875rem; /* 14px */
+--font-size-base: 1rem; /* 16px */
+--font-size-lg: 1.125rem; /* 18px */
+--font-size-xl: 1.25rem; /* 20px */
+--font-size-2xl: 1.5rem; /* 24px */
+--font-size-3xl: 1.875rem; /* 30px */
+--font-size-4xl: 2.25rem; /* 36px */
+--font-weight-light: 300;
+--font-weight-normal: 400;
+--font-weight-medium: 500;
+--font-weight-semibold: 600;
+--font-weight-bold: 700;
+--line-height-tight: 1.25;
+--line-height-normal: 1.5;
+--line-height-relaxed: 1.75;
+5. CSS Variables (Custom Properties)
+/* Spacing scale */
+--space-0: 0;
+--space-1: 0.25rem; /* 4px */
+--space-2: 0.5rem; /* 8px */
+--space-3: 0.75rem; /* 12px */
+--space-4: 1rem; /* 16px */
+--space-5: 1.25rem; /* 20px */
+--space-6: 1.5rem; /* 24px */
+--space-8: 2rem; /* 32px */
+--space-10: 2.5rem; /* 40px */
+--space-12: 3rem; /* 48px */
+--space-16: 4rem; /* 64px */
+--space-20: 5rem; /* 80px */
+/* Border radius */
+--radius-none: 0;
+--radius-sm: 0.125rem; /* 2px */
+--radius-base: 0.25rem; /* 4px */
+--radius-md: 0.375rem; /* 6px */
+--radius-lg: 0.5rem; /* 8px */
+--radius-xl: 0.75rem; /* 12px */
+--radius-2xl: 1rem; /* 16px */
+--radius-full: 9999px; /* Circle */
+/* Shadows */
+--shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+--shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+--shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+--shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+--shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04
+/* Transitions */
+--transition-fast: 150ms ease-in-out;
+--transition-base: 250ms ease-in-out;
+--transition-slow: 350ms ease-in-out;
+/* Z-index scale */
+--z-dropdown: 1000;
+--z-sticky: 1020;
+--z-fixed: 1030;
+--z-modal-backdrop: 1040;
+--z-modal: 1050;
+--z-popover: 1060;
+--z-tooltip: 1070;
+/* Breakpoints */
+--breakpoint-sm: 576px;
+--breakpoint-md: 768px;
+--breakpoint-lg: 992px;
+--breakpoint-xl: 1200px;
+--breakpoint-2xl: 1400px;
+}
+/* Component-level variables */
+.button {
+--button-bg: var(--primary-500);
+--button-color: white;
+--button-padding: var(--space-3) var(--space-6);
+--button-radius: var(--radius-md);
+--button-transition: var(--transition-base);
+background-color: var(--button-bg);
+color: var(--button-color);
+padding: var(--button-padding);
+border-radius: var(--button-radius);
+transition: var(--button-transition);
+border: none;
+cursor: pointer;
+font-weight: var(--font-weight-medium);
+}
+.button:hover {
+--button-bg: var(--primary-600);
+}
+.button--secondary {
+--button-bg: var(--secondary-500);
+}
+.button--large {
+--button-padding: var(--space-4) var(--space-8);
+font-size: var(--font-size-lg);
+}
+/* Card component with variables */
+.card {
+--card-bg: white;
+--card-border: 1px solid #e2e8f0;
+--card-radius: var(--radius-lg);
+--card-shadow: var(--shadow-base);
+--card-padding: var(--space-6);
+background: var(--card-bg);
+border: var(--card-border);
+border-radius: var(--card-radius);
+box-shadow: var(--card-shadow);
+padding: var(--card-padding);
+}
+/* Theme variations using variables */
+.theme-dark {
+--primary-500: #3b82f6;
+--card-bg: #1f2937;
+--card-border: 1px solid #374151;
+color: white;
+}
+.theme-high-contrast {
+--primary-500: #000000;
+--card-bg: #ffffff;
+--card-border: 2px solid #000000;
+}
+/* Conditional variables with fallbacks */
+.conditional-style {
+color: var(--custom-color, var(--primary-500));
+margin: var(--custom-margin, var(--space-4));
+font-size: var(--custom-font-size, var(--font-size-base));
+}
+/* Mathematical calculations with variables */
+.calculated-spacing {
+padding: calc(var(--space-4) * 2);
+margin: calc(var(--space-2) + var(--space-4));
+width: calc(100% - var(--space-8));
+}
+/* Media query variables (CSS Container Queries) */
+@supports (container-type: inline-size) {
+.responsive-container {
+container-type: inline-size;
+}
+@container (min-width: 400px) {
+.card {
+--card-padding: var(--space-8);
+}
+}
+}
+.static-element {
+position: static; /* Default value */
+/* top, right, bottom, left have no effect */
+}
+.relative-container {
+position: relative;
+width: 300px;
+height: 200px;
+background: #f0f0f0;
+border: 2px solid #ddd;
+}
+📱 LAYOUT & RESPONSIVE DESIGN
+1. Positioning Examples
+Static Positioning (Default):
+Relative Positioning:
+.relative-item {
+position: relative;
+top: 20px; /* Move 20px down from normal position */
+left: 30px; /* Move 30px right from normal position */
+background: #007acc;
+color: white;
+padding: 10px;
+width: 100px;
+}
+/* Relative positioning for layering */
+.layered-text {
+position: relative;
+z-index: 2;
+background: white;
+padding: 20px;
+}
+.absolute-container {
+position: relative; /* Creates positioning context */
+width: 400px;
+height: 300px;
+background: #f8f9fa;
+border: 2px dashed #6c757d;
+}
+.absolute-item {
+position: absolute;
+top: 10px;
+right: 10px;
+background: #28a745;
+color: white;
+padding: 8px 12px;
+border-radius: 4px;
+}
+/* Corner positioning examples */
+.top-left {
+position: absolute;
+top: 0;
+left: 0;
+}
+.top-right {
+position: absolute;
+top: 0;
+right: 0;
+}
+.bottom-left {
+position: absolute;
+bottom: 0;
+left: 0;
+Absolute Positioning:
+}
+.bottom-right {
+position: absolute;
+bottom: 0;
+right: 0;
+}
+/* Centered absolute positioning */
+.absolute-center {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+/* Stretched absolute positioning */
+.absolute-stretched {
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+}
+/* Fixed header */
+.fixed-header {
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+height: 60px;
+background: #007acc;
+color: white;
+z-index: 1000;
+box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+padding: 0 20px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+/* Fixed sidebar */
+.fixed-sidebar {
+position: fixed;
+top: 60px; /* Below header */
+left: 0;
+width: 250px;
+height: calc(100vh - 60px);
+background: #f8f9fa;
+border-right: 1px solid #dee2e6;
+overflow-y: auto;
+z-index: 999;
+Fixed Positioning:
+}
+/* Fixed floating action button */
+.fixed-fab {
+position: fixed;
+bottom: 20px;
+right: 20px;
+width: 60px;
+height: 60px;
+border-radius: 50%;
+background: #007acc;
+color: white;
+border: none;
+box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+cursor: pointer;
+z-index: 1001;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 24px;
+}
+/* Fixed overlay */
+.fixed-overlay {
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: rgba(0, 0, 0, 0.5);
+z-index: 1040;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+/* Sticky navigation */
+.sticky-nav {
+position: sticky;
+top: 0; /* Sticks when scrolled to top of viewport */
+background: white;
+border-bottom: 1px solid #dee2e6;
+z-index: 100;
+padding: 15px 0;
+}
+/* Sticky sidebar */
+.sticky-sidebar {
+position: sticky;
+top: 20px; /* 20px from top when stuck */
+height: fit-content;
+max-height: calc(100vh - 40px);
+overflow-y: auto;
+Sticky Positioning:
+}
+/* Sticky table headers */
+.sticky-table th {
+position: sticky;
+top: 0;
+background: white;
+z-index: 10;
+box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+}
+/* Sticky footer */
+.sticky-footer {
+position: sticky;
+bottom: 0;
+background: #f8f9fa;
+padding: 15px;
+border-top: 1px solid #dee2e6;
+margin-top: auto;
+}
+/* Complex sticky example */
+.sticky-container {
+height: 100vh;
+overflow-y: auto;
+}
+.sticky-header {
+position: sticky;
+top: 0;
+background: #007acc;
+color: white;
+padding: 20px;
+z-index: 2;
+}
+.sticky-subheader {
+position: sticky;
+top: 80px; /* Below main header */
+background: #0056b3;
+color: white;
+padding: 10px;
+z-index: 1;
+}
+/* Mobile First Approach - Base styles for mobile */
+.container {
+width: 100%;
+padding: 0 16px;
+margin: 0 auto;
+2. Media Queries & Mobile-First Approach
+Basic Media Query Structure:
+}
+.grid {
+display: block;
+}
+.grid-item {
+width: 100%;
+margin-bottom: 20px;
+}
+/* Typography - Mobile */
+h1 {
+font-size: 24px;
+line-height: 1.2;
+}
+h2 {
+font-size: 20px;
+}
+p {
+font-size: 16px;
+line-height: 1.5;
+}
+/* Navigation - Mobile */
+.nav {
+flex-direction: column;
+}
+.nav-item {
+width: 100%;
+text-align: center;
+padding: 12px;
+}
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+.container {
+max-width: 540px;
+}
+h1 {
+font-size: 28px;
+}
+.grid {
+display: flex;
+flex-wrap: wrap;
+gap: 20px;
+}
+.grid-item {
+width: calc(50% - 10px);
+margin-bottom: 0;
+}
+}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+.container {
+max-width: 720px;
+padding: 0 24px;
+}
+h1 {
+font-size: 36px;
+}
+h2 {
+font-size: 28px;
+}
+p {
+font-size: 18px;
+line-height: 1.6;
+}
+.nav {
+flex-direction: row;
+justify-content: space-between;
+}
+.nav-item {
+width: auto;
+padding: 8px 16px;
+}
+.grid {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 30px;
+}
+}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+.container {
+max-width: 960px;
+padding: 0 32px;
+}
+h1 {
+font-size: 48px;
+}
+.grid {
+grid-template-columns: repeat(3, 1fr);
+gap: 40px;
+}
+/* Multi-column layout */
+.content-layout {
+display: grid;
+grid-template-columns: 1fr 300px;
+gap: 40px;
+}
+.sidebar {
+position: sticky;
+top: 20px;
+height: fit-content;
+}
+}
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+.container {
+max-width: 1140px;
+}
+.grid {
+grid-template-columns: repeat(4, 1fr);
+gap: 50px;
+}
+.content-layout {
+grid-template-columns: 1fr 350px;
+}
+}
+/* Extra extra large devices (1400px and up) */
+@media (min-width: 1400px) {
+.container {
+max-width: 1320px;
+}
+}
+/* Orientation queries */
+@media (orientation: portrait) {
+.hero {
+height: 100vh;
+flex-direction: column;
+}
+.image-gallery {
+grid-template-columns: repeat(2, 1fr);
+}
+}
+@media (orientation: landscape) {
+.hero {
+height: 50vh;
+flex-direction: row;
+Advanced Media Query Features:
+}
+.image-gallery {
+grid-template-columns: repeat(4, 1fr);
+}
+}
+/* Specific landscape height for mobile */
+@media (orientation: landscape) and (max-height: 500px) {
+.hero {
+height: 100vh;
+padding: 20px 0;
+}
+.nav {
+height: 50px;
+}
+}
+/* Aspect ratio queries */
+@media (min-aspect-ratio: 16/9) {
+.widescreen-content {
+display: flex;
+justify-content: space-between;
+}
+}
+/* Resolution/pixel density queries */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+.high-res-image {
+background-image: url('image@2x.png');
+background-size: 200px 100px;
+}
+}
+/* Pointer capability */
+@media (pointer: coarse) {
+/* Touch devices */
+.button {
+min-height: 44px;
+min-width: 44px;
+padding: 12px 20px;
+}
+.nav-item {
+padding: 16px;
+}
+}
+@media (pointer: fine) {
+/* Mouse/trackpad devices */
+.button {
+padding: 8px 16px;
+}
+.tooltip:hover::after {
+opacity: 1;
+}
+}
+/* Hover capability */
+@media (hover: hover) {
+.card:hover {
+transform: translateY(-4px);
+box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+.button:hover {
+background-color: var(--button-hover-bg);
+}
+}
+@media (hover: none) {
+/* Touch devices that don't support hover */
+.card:active {
+transform: scale(0.98);
+}
+}
+/* User preferences */
+@media (prefers-color-scheme: dark) {
+:root {
+--bg-color: #1a1a1a;
+--text-color: #ffffff;
+--border-color: #333333;
+}
+body {
+background-color: var(--bg-color);
+color: var(--text-color);
+}
+.card {
+background: #2d2d2d;
+border-color: var(--border-color);
+}
+}
+@media (prefers-reduced-motion: reduce) {
+* {
+animation-duration: 0.01ms !important;
+animation-iteration-count: 1 !important;
+transition-duration: 0.01ms !important;
+scroll-behavior: auto !important;
+}
+}
+@media (prefers-contrast: high) {
+.button {
+border: 2px solid currentColor;
+}
+.card {
+border: 2px solid;
+}
+}
+/* Print styles */
+@media print {
+/* Hide interactive elements */
+.nav,
+.sidebar,
+.button,
+.form,
+.no-print {
+display: none !important;
+}
+/* Optimize for print */
+body {
+font-size: 12pt;
+line-height: 1.4;
+color: black !important;
+background: white !important;
+}
+.container {
+max-width: none !important;
+margin: 0 !important;
+padding: 0 !important;
+}
+/* Page breaks */
+.page-break {
+page-break-before: always;
+}
+.avoid-break {
+page-break-inside: avoid;
+}
+/* Show URLs for links */
+a[href]:after {
+content: " (" attr(href) ")";
+font-size: 10pt;
+color: #666;
+}
+/* Abbreviation expansions */
+abbr[title]:after {
+content: " (" attr(title) ")";
+}
+}
+/* Container queries for component-based responsive design */
+.card-container {
+container-type: inline-size;
+container-name: card;
+}
+@container card (min-width: 300px) {
+.card {
+display: flex;
+align-items: center;
+gap: 20px;
+}
+.card-image {
+width: 100px;
+height: 100px;
+flex-shrink: 0;
+}
+}
+@container card (min-width: 500px) {
+.card {
+flex-direction: column;
+text-align: center;
+}
+.card-image {
+width: 150px;
+height: 150px;
+}
+}
+/* Multiple container contexts */
+.sidebar-container {
+container-type: inline-size;
+container-name: sidebar;
+}
+@container sidebar (max-width: 250px) {
+.sidebar-nav {
+flex-direction: column;
+}
+.sidebar-nav a {
+padding: 8px;
+text-align: center;
+}
+}
+Container Queries (Modern Browsers):
+<!-- Click events -->
+<button onclick="alert('Button clicked!')">Simple Alert</button>
+<button onclick="toggleMenu(this)">Toggle Menu</button>
+<button onclick="changeColor(this, 'red')">Change Color</button>
+<!-- Mouse hover events -->
+<div onmouseover="showTooltip(this)" onmouseout="hideTooltip(this)">
+Hover for tooltip
+</div>
+<img src="image.jpg"
+onmouseover="this.src='image-hover.jpg'"
+onmouseout="this.src='image.jpg'"
+alt="Hover effect image">
+<!-- Mouse down/up events -->
+<button onmousedown="pressEffect(this)" onmouseup="releaseEffect(this)">
+Press Me
+</button>
+<!-- Double click -->
+<div ondblclick="expandCard(this)">Double-click to expand</div>
+<!-- Right click (context menu) -->
+<div oncontextmenu="showCustomMenu(event); return false;">
+Right-click for custom menu
+</div>
+<!-- Key press events -->
+<input type="text"
+onkeydown="handleKeyDown(event)"
+onkeyup="handleKeyUp(event)"
+onkeypress="handleKeyPress(event)"
+placeholder="Type something...">
+<!-- Specific key detection -->
+<input type="text"
+onkeydown="if(event.key === 'Enter') submitForm()"
+placeholder="Press Enter to submit">
+<!-- Character counter -->
+<textarea onkeyup="updateCounter(this)" maxlength="100"></textarea>
+<div id="counter">0/100 characters</div>
+<!-- Tab navigation -->
+<input type="text" onfocus="highlightField(this)" onblur="removeHighlight(this)">
+🖱️INLINE EVENT HANDLERS
+Mouse Events:
+Keyboard Events:
+<!-- Form submission -->
+<form onsubmit="return validateForm(this)">
+<input type="email"
+oninput="validateEmail(this)"
+onchange="checkEmailAvailability(this)"
+required>
+<select onchange="updateOptions(this)">
+<option value="">Choose...</option>
+<option value="option1">Option 1</option>
+<option value="option2">Option 2</option>
+</select>
+<input type="checkbox"
+onchange="toggleSection(this)"
+id="subscribe">
+<button type="submit">Submit</button>
+<button type="reset" onclick="clearForm()">Reset</button>
+</form>
+<!-- Real-time validation -->
+<input type="password"
+oninput="checkPasswordStrength(this)"
+onpaste="return false"
+placeholder="Password">
+<!-- File upload -->
+<input type="file"
+onchange="previewFile(this)"
+accept="image/*">
+<div id="preview"></div>
+<!-- Page load events -->
+<body onload="initializePage()" onunload="cleanup()">
+<!-- Window resize -->
+<div id="responsive-content"
+onresize="adjustLayout()"
+style="width: 100%; height: 200px; background: #f0f0f0;">
+Resize the window
+</div>
+<!-- Scroll events -->
+<div onscroll="handleScroll(this)"
+style="height: 200px; overflow-y: scroll;">
+<div style="height: 500px;">Scrollable content</div>
+</div>
+Form Events:
+Window Events:
+<!-- Focus management -->
+<input type="text"
+onfocus="this.style.backgroundColor='#e6f3ff'"
+onblur="this.style.backgroundColor=''"
+placeholder="Focus me">
+<!-- Tab order -->
+<input type="text" tabindex="1" onfocus="showHint(1)">
+<input type="text" tabindex="2" onfocus="showHint(2)">
+<input type="text" tabindex="3" onfocus="showHint(3)">
+<!-- Touch events -->
+<div ontouchstart="handleTouchStart(event)"
+ontouchmove="handleTouchMove(event)"
+ontouchend="handleTouchEnd(event)"
+style="width: 200px; height: 200px; background: #007acc; color: white; display: flex
+Touch me (mobile)
+</div>
+<!-- Gesture detection -->
+<div ongesturestart="handleGestureStart(event)"
+ongesturechange="handleGestureChange(event)"
+ongestureend="handleGestureEnd(event)">
+Pinch to zoom (iOS Safari)
+</div>
+<div class="interactive-card"
+onclick="selectCard(this)"
+ondblclick="editCard(this)"
+onmouseover="highlightCard(this)"
+onmouseout="unhighlightCard(this)"
+onkeydown="handleCardKeyboard(event, this)"
+tabindex="0"
+role="button"
+aria-label="Interactive card">
+<img src="card-image.jpg"
+onload="imageLoaded(this)"
+onerror="imageError(this)"
+alt="Card image">
+<h3 contenteditable="true"
+oninput="updateTitle(this)"
+onblur="saveTitle(this)">
+Editable Title
+</h3>
+Focus Events:
+Touch Events (Mobile):
+Complete Example with Multiple Events:
+<button onclick="event.stopPropagation(); deleteCard(this.parentElement)">
+Delete
+</button>
+</div>
+<script>
+// Supporting JavaScript functions
+function selectCard(card) {
+document.querySelectorAll('.interactive-card').forEach(c =>
+c.classList.remove('selected'));
+card.classList.add('selected');
+}
+function editCard(card) {
+card.classList.add('editing');
+card.querySelector('h3').focus();
+}
+function highlightCard(card) {
+card.style.transform = 'scale(1.05)';
+card.style.boxShadow = '0 8px 16px rgba(0,0,0,0.2)';
+}
+function unhighlightCard(card) {
+card.style.transform = 'scale(1)';
+card.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
+}
+function handleCardKeyboard(event, card) {
+if (event.key === 'Enter' || event.key === ' ') {
+event.preventDefault();
+selectCard(card);
+} else if (event.key === 'Delete') {
+deleteCard(card);
+}
+}
+function updateTitle(element) {
+// Real-time title update
+console.log('Title changed to:', element.textContent);
+}
+function saveTitle(element) {
+// Save title when editing is done
+element.parentElement.classList.remove('editing');
+}
+function deleteCard(card) {
+if (confirm('Are you sure you want to delete this card?')) {
+card.remove();
+}
+}
+function imageLoaded(img) {
+img.style.opacity = '1';
+img.style.transition = 'opacity 0.3s ease';
+}
+function imageError(img) {
+img.src = 'placeholder.jpg';
+img.alt = 'Image failed to load';
+}
+</script>
+This comprehensive collection covers all the advanced HTML and CSS topics you requested,
+with practical, ready-to-use examples that demonstrate each concept clearly!

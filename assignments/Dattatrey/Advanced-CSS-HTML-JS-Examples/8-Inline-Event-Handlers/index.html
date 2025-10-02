@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inline Event Handlers</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Inline Event Handlers</h1>
+
+    <h2>Mouse Events</h2>
+    <button onclick="alert('Button clicked!')">Simple Alert</button>
+    <div onmouseover="this.style.backgroundColor='lightblue'" onmouseout="this.style.backgroundColor='transparent'" class="event-box">
+        Hover over me
+    </div>
+
+    <h2>Keyboard Events</h2>
+    <input type="text" onkeydown="console.log('Key down!')" placeholder="Type here and check console">
+
+    <h2>Form Events</h2>
+    <form onsubmit="return confirm('Are you sure you want to submit?');">
+        <input type="text" onchange="console.log('Input changed!')" placeholder="Change me and unfocus">
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2>Window Events</h2>
+    <p>Resize the window to see the width and height in the console.</p>
+
+    <div class="interactive-card"
+         onclick="selectCard(this)"
+         onmouseover="highlightCard(this)"
+         onmouseout="unhighlightCard(this)"
+         tabindex="0">
+        <h3>Interactive Card</h3>
+        <p>Click to select, hover to highlight.</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+/* Mobile First Approach - Base styles for mobile */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.container {
+    width: 100%;
+    padding: 0 16px;
+    margin: 0 auto;
+}
+
+.grid {
+    display: block; /* Stack items vertically on mobile */
+}
+
+.grid-item {
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: #007acc;
+    color: white;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+h1 {
+    font-size: 24px;
+    line-height: 1.2;
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    background-color: #343a40;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+.nav-item {
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+    color: white;
+    border-bottom: 1px solid #495057;
+}
+.nav-item:last-child {
+    border-bottom: none;
+}
+
+.sidebar {
+    display: none; /* Hide sidebar on mobile */
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+    h1 {
+        font-size: 28px;
+    }
+    .grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    .grid-item {
+        width: calc(50% - 10px);
+        margin-bottom: 0;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+    h1 {
+        font-size: 36px;
+    }
+    .nav {
+        flex-direction: row;
+        justify-content: center;
+        border-radius: 4px;
+    }
+    .nav-item {
+        width: auto;
+        padding: 8px 16px;
+        border-bottom: none;
+        border-right: 1px solid #495057;
+    }
+    .nav-item:last-child {
+        border-right: none;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+    h1 {
+        font-size: 48px;
+    }
+    .grid {
+        grid-template-columns: repeat(4, 1fr);
+        display: grid;
+    }
+    .grid-item {
+        width: auto;
+    }
+    .content-layout {
+        display: grid;
+        grid-template-columns: 1fr 300px;
+        gap: 40px;
+        margin-top: 40px;
+    }
+    .sidebar {
+        display: block; /* Show sidebar */
+        background-color: #e9ecef;
+        padding: 20px;
+        border-radius: 4px;
+    }
+}
+
+/* Print styles */
+@media print {
+    .nav, .sidebar {
+        display: none !important;
+    }
+    body {
+        color: black !important;
+        background: white !important;
+    }
+    .container {
+        max-width: none !important;
+    }
+}

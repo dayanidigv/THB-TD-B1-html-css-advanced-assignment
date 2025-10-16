@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attribute Selectors</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Attribute Selectors</h1>
+
+    <h2>Attribute Existence</h2>
+    <a href="#" title="This is a link">Link with title</a>
+    <a href="#">Link without title</a>
+
+    <h2>Attribute Equals</h2>
+    <a href="https://example.com">Example Link</a>
+    <a href="https://example.org">Another Link</a>
+
+    <h2>Attribute Starts With</h2>
+    <a href="https://developer.mozilla.org">MDN Web Docs</a>
+    <a href="https://css-tricks.com">CSS-Tricks</a>
+
+    <h2>Attribute Ends With</h2>
+    <a href="document.pdf">PDF Document</a>
+    <a href="archive.zip">ZIP Archive</a>
+    <img src="image.svg" alt="SVG Image" width="50">
+
+    <h2>Attribute Contains Word</h2>
+    <img src="photo1.jpg" alt="a nature photo" width="100">
+    <div class="featured item">Featured Item</div>
+    <div class="item">Regular Item</div>
+
+    <h2>Attribute Starts With Hyphen</h2>
+    <p lang="en-US">Hello</p>
+    <p lang="fr">Bonjour</p>
+
+    <h2>Case-Insensitive Matching</h2>
+    <input type="email" placeholder="email@example.com">
+    <input type="EMAIL" placeholder="EMAIL@EXAMPLE.COM">
+
+    <h2>Multiple Attribute Selectors</h2>
+    <input type="text" required placeholder="Required text input">
+    <input type="text" placeholder="Optional text input">
+    <button type="submit">Submit</button>
+    <button type="submit" disabled>Submit (Disabled)</button>
+</body>
+</html>

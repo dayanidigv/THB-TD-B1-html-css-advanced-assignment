@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo-classes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>User Action Pseudo-classes</h1>
+    <a href="#link">Link</a>
+    <a href="#visited">Visited Link (click me)</a>
+
+    <hr>
+
+    <h1>Form Element States</h1>
+    <form>
+        <input type="text" placeholder="Focus on me">
+        <input type="email" placeholder="Invalid email" required>
+        <input type="email" value="valid@email.com" placeholder="Valid email" required>
+        <input type="text" placeholder="Required field" required>
+        <input type="text" placeholder="Optional field">
+        <input type="text" value="Disabled" disabled>
+        <input type="text" value="Enabled">
+        <br><br>
+        <input type="checkbox" id="check"> <label for="check">Check me</label>
+        <br><br>
+        <button>Hover and click me</button>
+    </form>
+
+    <hr>
+
+    <h1>Child Selectors</h1>
+    <ul>
+        <li>First item</li>
+        <li>Second item</li>
+        <li>Third item</li>
+        <li>Fourth item</li>
+        <li>Last item</li>
+    </ul>
+    <div>
+        <p>Only child paragraph.</p>
+    </div>
+
+    <hr>
+
+    <h1>Nth-child Patterns</h1>
+    <table>
+        <tr><td>Row 1 (odd)</td></tr>
+        <tr><td>Row 2 (even)</td></tr>
+        <tr><td>Row 3 (odd)</td></tr>
+        <tr><td>Row 4 (even)</td></tr>
+    </table>
+    <ul>
+        <li>Item 1 (3n+1)</li>
+        <li>Item 2 (3n+2)</li>
+        <li>Item 3 (3n)</li>
+        <li>Item 4 (3n+1)</li>
+        <li>Item 5 (3n+2)</li>
+        <li>Item 6 (3n)</li>
+    </ul>
+    <ol>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3 (bold)</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+    </ol>
+
+</body>
+</html>
